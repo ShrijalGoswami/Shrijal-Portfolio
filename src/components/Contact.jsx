@@ -281,7 +281,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="https://github.com/Shri-AI-ML"
+                  href="https://github.com/ShrijalGoswami"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-black/40 border border-white/[0.03] rounded-lg hover:border-indigo-500/30 transition-all text-zinc-400 hover:text-white"
