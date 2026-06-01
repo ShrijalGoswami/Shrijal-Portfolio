@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Terminal, Brain, Sliders, CheckCircle2, ChevronRight, FileText, Activity } from 'lucide-react';
+import { ExternalLink, Terminal, Brain, Sliders, CheckCircle2, ChevronRight, FileText, Activity, Zap, User, BookOpen, Briefcase, Code2, Database } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { use3DTilt } from '../hooks/use3DTilt';
 
@@ -128,10 +128,30 @@ const ProjectContainer = ({ children }) => {
   );
 };
 
+// NLP pipeline stages displayed in the resume parsing animation
+const NLP_STAGES = [
+  { id: 'parse',   label: 'PDF Text Extraction',     color: 'text-amber-400',   icon: '📄', detail: 'PyMuPDF / pdfplumber layer' },
+  { id: 'ner',     label: 'Named Entity Recognition', color: 'text-teal-400',    icon: '🏷️', detail: 'spaCy NER + custom patterns' },
+  { id: 'skills',  label: 'Skills Detection',         color: 'text-cyan-400',    icon: '⚡', detail: 'Token classification + taxonomy' },
+  { id: 'edu',     label: 'Education Extraction',     color: 'text-purple-400',  icon: '🎓', detail: 'Regex + section-heading parser' },
+  { id: 'exp',     label: 'Experience Analysis',      color: 'text-indigo-400',  icon: '💼', detail: 'Date chunker + org classifier' },
+  { id: 'profile', label: 'Candidate Profiling',      color: 'text-emerald-400', icon: '✅', detail: 'Structured JSON output → ATS' },
+];
+
+const DEMO_RESUME_FIELDS = [
+  { key: 'name',       val: 'Shrijal Goswami',              label: 'Candidate',    color: 'text-amber-300' },
+  { key: 'email',      val: 'shrijal@example.com',           label: 'Email',        color: 'text-teal-300' },
+  { key: 'skills',     val: 'Python · NLP · FastAPI · ML',  label: 'Skills',       color: 'text-cyan-300' },
+  { key: 'education',  val: 'B.Tech CS – 2026',             label: 'Education',    color: 'text-purple-300' },
+  { key: 'experience', val: 'AI Intern – Pinnacle Labs',    label: 'Experience',   color: 'text-indigo-300' },
+  { key: 'ats_score',  val: '91 / 100',                     label: 'ATS Score',    color: 'text-emerald-400' },
+];
+
 const Projects = () => {
   const [activeTabs, setActiveTabs] = useState({
     rag: 'specs',
-    heart: 'specs'
+    heart: 'specs',
+    resume: 'specs',
   });
 
   // --- PLAYGROUND 1 STATE (Explainable RAG) ---
@@ -227,6 +247,36 @@ const Projects = () => {
         });
       }
     }, 1400);
+  };
+
+  // --- PLAYGROUND 3 STATE (Resume Intelligence) ---
+  const [resumeParsing, setResumeParsing] = useState(false);
+  const [resumeStageIdx, setResumeStageIdx] = useState(-1);
+  const [resumeFields, setResumeFields] = useState([]);
+  const [resumeDone, setResumeDone] = useState(false);
+
+  const runResumeParser = () => {
+    if (resumeParsing) return;
+    setResumeParsing(true);
+    setResumeStageIdx(0);
+    setResumeFields([]);
+    setResumeDone(false);
+
+    NLP_STAGES.forEach((_, i) => {
+      setTimeout(() => {
+        setResumeStageIdx(i);
+        if (i < DEMO_RESUME_FIELDS.length) {
+          setResumeFields(prev => [...prev, DEMO_RESUME_FIELDS[i]]);
+        }
+        if (i === NLP_STAGES.length - 1) {
+          setTimeout(() => {
+            setResumeParsing(false);
+            setResumeDone(true);
+            confetti({ particleCount: 45, spread: 55, colors: ['#f59e0b', '#2dd4bf', '#818cf8'] });
+          }, 400);
+        }
+      }, i * 520);
+    });
   };
 
   return (
@@ -698,6 +748,256 @@ const Projects = () => {
                         <span className="text-[8px] text-zinc-500 block uppercase font-bold">Primary Contributor:</span>
                         <span className="text-[9px] text-zinc-300 font-semibold">{predResult.contributor}</span>
                       </div>
+                    </motion.div>
+                  )}
+                </div>
+              )}
+            </div>
+
+          </ProjectContainer>
+
+          {/* PROJECT 3: RESUME INTELLIGENCE PLATFORM */}
+          <ProjectContainer>
+
+            {/* Project Info Panel */}
+            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/[0.04] z-10">
+              <div>
+                {/* Header row: badge + links */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono bg-amber-950/25 text-amber-400 border border-amber-900/35 rounded px-2.5 py-0.5">
+                      NLP · DOCUMENT INTELLIGENCE
+                    </span>
+                    <span className="text-[9px] font-mono bg-teal-950/20 text-teal-400 border border-teal-900/30 rounded px-2 py-0.5 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse inline-block" />
+                      LIVE
+                    </span>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href="https://resume-intelligence-platform.streamlit.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Live Demo"
+                      className="p-1.5 bg-white/[0.02] border border-white/[0.04] rounded-md hover:border-amber-500/30 text-zinc-400 hover:text-amber-300 transition-all"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href="https://github.com/ShrijalGoswami/Resume-Parser"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="GitHub Repository"
+                      className="p-1.5 bg-white/[0.02] border border-white/[0.04] rounded-md hover:border-amber-500/30 text-zinc-400 hover:text-white transition-all"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">Resume Intelligence Platform</h3>
+                <p className="text-[10px] font-mono text-zinc-500 mt-1">Python · Streamlit · spaCy · NLP · PDF Processing · Groq LLM · ATS Engine</p>
+
+                {/* Engineering Narrative */}
+                <p className="text-[11px] text-zinc-400 mt-3 leading-relaxed border-l-2 border-amber-500/40 pl-3 italic">
+                  Transforming unstructured resume documents into structured candidate intelligence — automating the full parsing → extraction → scoring → profiling pipeline.
+                </p>
+
+                {/* Tab Switcher */}
+                <div className="flex gap-3 border-b border-white/[0.04] py-3 mt-4">
+                  <button
+                    onClick={() => setActiveTabs(prev => ({ ...prev, resume: 'specs' }))}
+                    className={`text-[10px] font-mono pb-1 border-b cursor-pointer ${activeTabs.resume === 'specs' ? 'border-amber-500 text-white font-semibold' : 'border-transparent text-zinc-550 hover:text-zinc-300'}`}
+                  >
+                    System Architecture
+                  </button>
+                  <button
+                    onClick={() => setActiveTabs(prev => ({ ...prev, resume: 'playground' }))}
+                    className={`text-[10px] font-mono pb-1 border-b flex items-center gap-1.5 cursor-pointer ${activeTabs.resume === 'playground' ? 'border-amber-500 text-white font-semibold' : 'border-transparent text-zinc-550 hover:text-zinc-300'}`}
+                  >
+                    <FileText className="h-3.5 w-3.5 text-amber-400" />
+                    NLP Parser Demo
+                  </button>
+                </div>
+
+                {/* Tab Contents */}
+                <div className="mt-4 min-h-[200px]">
+                  <AnimatePresence mode="wait">
+                    {activeTabs.resume === 'specs' ? (
+                      <motion.div
+                        key="specs-resume"
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="space-y-4 text-xs text-zinc-400"
+                      >
+                        <div>
+                          <span className="text-zinc-200 font-semibold font-mono block text-[10px]">PROBLEM:</span>
+                          <p className="leading-relaxed">
+                            Recruiters spend 6–8 seconds per resume. Manual screening is bottlenecked, error-prone, and misses key signal. ATS systems lack semantic understanding.
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-zinc-200 font-semibold font-mono block text-[10px]">ARCHITECTURE:</span>
+                          <p className="leading-relaxed">
+                            Multi-stage NLP pipeline: PDF extraction → Named Entity Recognition → skills taxonomy matching → section-aware education/experience parsing → ATS scoring via Groq LLM synthesis. Deployed on Streamlit Cloud.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                          <div className="p-2.5 bg-black/40 border border-white/[0.03] rounded">
+                            <span className="text-zinc-500 font-mono block text-[8px] uppercase">Capabilities</span>
+                            <span className="text-amber-400 font-mono font-bold text-xs">9 Intelligence Modules</span>
+                          </div>
+                          <div className="p-2.5 bg-black/40 border border-white/[0.03] rounded">
+                            <span className="text-zinc-500 font-mono block text-[8px] uppercase">Deployment</span>
+                            <span className="text-teal-400 font-mono font-bold text-xs">Streamlit Cloud ✓ Live</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="play-resume"
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="space-y-3 text-xs font-mono text-zinc-450"
+                      >
+                        <p className="text-zinc-500">// Upload a resume PDF — watch the NLP pipeline extract structured candidate intelligence in real-time.</p>
+                        <div className="p-3.5 bg-black/40 border border-white/[0.03] rounded-lg space-y-2.5">
+                          <div className="flex items-center justify-between text-[10px]">
+                            <span className="text-zinc-400">Pipeline status:</span>
+                            <span className={resumeDone ? 'text-emerald-400' : resumeParsing ? 'text-amber-400 animate-pulse' : 'text-zinc-600'}>
+                              {resumeDone ? 'EXTRACTION_COMPLETE' : resumeParsing ? 'PARSING...' : 'IDLE'}
+                            </span>
+                          </div>
+                          {/* NLP Stage Progress */}
+                          <div className="space-y-1">
+                            {NLP_STAGES.map((stage, i) => (
+                              <div key={stage.id} className={`flex items-center gap-2 text-[9px] transition-all duration-300 ${i <= resumeStageIdx ? stage.color : 'text-zinc-700'}`}>
+                                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${i < resumeStageIdx ? 'bg-current' : i === resumeStageIdx && resumeParsing ? 'bg-current animate-pulse' : i === resumeStageIdx && resumeDone ? 'bg-current' : 'bg-zinc-800'}`} />
+                                <span>{stage.label}</span>
+                                {i < resumeStageIdx && <CheckCircle2 className="h-2.5 w-2.5 ml-auto" />}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <button
+                          onClick={runResumeParser}
+                          disabled={resumeParsing}
+                          className="w-full bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-white font-mono text-[10px] font-semibold py-2.5 rounded-md transition-colors shadow-[0_0_15px_rgba(245,158,11,0.15)] cursor-pointer"
+                        >
+                          {resumeParsing ? 'Parsing Resume Document...' : resumeDone ? 'Re-run NLP Pipeline' : 'Run NLP Pipeline'}
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              {/* Specs Footer */}
+              <div className="pt-4 border-t border-white/[0.04] text-[9px] text-zinc-550 font-mono flex items-center justify-between">
+                <span>ATS-Oriented · Recruiter-Ready Output</span>
+                <span>Future: Multi-resume batch comparison</span>
+              </div>
+            </div>
+
+            {/* Visual / Playground Panel */}
+            <div className="lg:col-span-6 p-6 sm:p-8 bg-white/[0.01] flex flex-col justify-center z-10">
+              {activeTabs.resume === 'specs' ? (
+                /* Architecture Pipeline Graph */
+                <div className="p-5 bg-black/50 border border-white/[0.03] rounded-xl space-y-3 font-mono text-[10px]">
+                  <span className="text-zinc-500 uppercase tracking-widest font-bold block text-[8px] border-b border-white/[0.03] pb-2">NLP Extraction Pipeline</span>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between items-center p-2 bg-[#0a0a0f] border border-white/[0.03] rounded">
+                      <span className="text-zinc-400">1. PDF Ingestion Layer</span>
+                      <span className="text-amber-400 font-semibold">PyMuPDF</span>
+                    </div>
+                    <div className="flex items-center justify-center text-zinc-700"><ChevronRight className="h-3.5 w-3.5 rotate-90" /></div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="p-2 bg-[#0a0a0f] border border-white/[0.03] rounded text-center">
+                        <span className="text-zinc-500 block text-[8px]">NER Engine</span>
+                        <span className="text-teal-400">spaCy NLP</span>
+                      </div>
+                      <div className="p-2 bg-[#0a0a0f] border border-white/[0.03] rounded text-center">
+                        <span className="text-zinc-500 block text-[8px]">Skills Taxonomy</span>
+                        <span className="text-cyan-400">Token Classify</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center text-zinc-700"><ChevronRight className="h-3.5 w-3.5 rotate-90" /></div>
+                    <div className="flex justify-between items-center p-2 bg-[#0a0a0f] border border-white/[0.03] rounded">
+                      <span className="text-zinc-400">3. Section Parser</span>
+                      <span className="text-purple-400">Edu + Exp + Contact</span>
+                    </div>
+                    <div className="flex items-center justify-center text-zinc-700"><ChevronRight className="h-3.5 w-3.5 rotate-90" /></div>
+                    <div className="flex justify-between items-center p-2 bg-[#0a0a0f] border border-amber-900/20 rounded bg-amber-950/5">
+                      <span className="text-zinc-300 font-semibold">4. ATS Scoring + Profiling</span>
+                      <span className="text-amber-400 font-semibold">Groq LLM</span>
+                    </div>
+                  </div>
+                  {/* Tech stack pills */}
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.03]">
+                    {['Python', 'Streamlit', 'spaCy', 'PDF Processing', 'Groq LLM', 'ATS Engine'].map(tech => (
+                      <span key={tech} className="text-[8px] font-mono px-2 py-0.5 rounded bg-amber-950/15 text-amber-400/80 border border-amber-900/20">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                /* Dynamic NLP Output Display */
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[9px] font-mono font-bold uppercase text-zinc-500">Structured Candidate Profile:</span>
+                    <span className="text-[9px] font-mono text-zinc-600">resume_input.pdf</span>
+                  </div>
+                  {/* Extracted fields terminal */}
+                  <div className="p-3.5 bg-black/60 border border-white/[0.03] rounded-lg min-h-[160px] space-y-2 font-mono text-[10px] terminal-scroll overflow-y-auto">
+                    {resumeFields.length === 0 && !resumeParsing && (
+                      <span className="text-zinc-600 italic">// Run pipeline to extract candidate intelligence...</span>
+                    )}
+                    {resumeParsing && resumeFields.length === 0 && (
+                      <div className="flex items-center gap-1.5 text-amber-500/70 italic text-[9px]">
+                        <span className="w-1 h-3 bg-amber-500 animate-pulse" />
+                        <span>Initializing NLP extraction pipeline...</span>
+                      </div>
+                    )}
+                    <AnimatePresence>
+                      {resumeFields.map((field) => (
+                        <motion.div
+                          key={field.key}
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex items-start gap-2"
+                        >
+                          <span className="text-zinc-600 shrink-0">{field.label}:</span>
+                          <span className={`${field.color} font-semibold`}>{field.val}</span>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                  {resumeDone && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="flex gap-2"
+                    >
+                      <a
+                        href="https://resume-intelligence-platform.streamlit.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-500 text-white font-mono text-[10px] font-semibold py-2.5 rounded-md transition-colors shadow-[0_0_15px_rgba(245,158,11,0.15)]"
+                      >
+                        <ExternalLink className="h-3 w-3" />
+                        Launch Live Demo
+                      </a>
+                      <a
+                        href="https://github.com/ShrijalGoswami/Resume-Parser"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 bg-white/[0.03] border border-white/[0.06] hover:border-amber-500/30 text-zinc-300 hover:text-amber-300 font-mono text-[10px] font-semibold py-2.5 rounded-md transition-all"
+                      >
+                        <Github className="h-3 w-3" />
+                        View Source
+                      </a>
                     </motion.div>
                   )}
                 </div>
