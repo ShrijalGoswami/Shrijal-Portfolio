@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import NameIntro from '@/components/hero/NameIntro';
 import LivingHero from '@/components/hero/LivingHero';
+import Identity from '@/components/Identity';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <LivingHero />
+        <Identity />
         <About />
         <Experience />
         <Projects />
