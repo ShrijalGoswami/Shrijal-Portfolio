@@ -1,0 +1,115 @@
+{
+  "_EDIT_ME_FIRST": {
+    "_comment": "Everything on the site (header, contact, terminal) reads its links from here.",
+    "GITHUB_URL": "https://github.com/ShrijalGoswami",
+    "LINKEDIN_URL": "https://www.linkedin.com/in/shrijal-goswami",
+    "EMAIL": "goswamivansh999@gmail.com",
+    "RESUME_PDF_URL": "/Shrijal_Goswami_Resume.pdf"
+  },
+  "name": "Shrijal Goswami",
+  "role": "AI/ML Engineer",
+  "tagline": "Turning research into production-grade AI systems.",
+  "location": "Bhopal, India",
+  "availability": "Open to 2026 AI/ML internships & new-grad roles",
+  "summary": "AI/ML engineer focused on the unglamorous part of AI that actually ships: hybrid retrieval (dense vector + sparse BM25), stacked ensembles that generalize, and explainable systems people can audit. B.Tech CS (AI & ML specialization) at VIT Bhopal.",
+  "education": {
+    "school": "VIT Bhopal University",
+    "degree": "B.Tech, Computer Science (AI & ML specialization)",
+    "years": "2024 – 2028"
+  },
+  "experience": [
+    {
+      "stage": "Professional role",
+      "role": "AI Strategist",
+      "org": "AKademy38",
+      "where": "Australia-based EdTech startup · Remote",
+      "when": "2026 – present",
+      "current": true,
+      "points": [
+        "Own AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.",
+        "Replaced the manual AI booklet-generation workflow with a structured generation pipeline (the Booklet Engine), cutting token usage per booklet ~10× (≈40% → ≈4% of the prior budget).",
+        "Standardized prompt and pipeline design so output stays consistent as volume grows — measurably improving scalability, reliability, and operational efficiency of content production."
+      ]
+    },
+    {
+      "stage": "Internship",
+      "role": "AI/ML Intern",
+      "org": "Pinnacle Labs",
+      "where": "Kolkata · Remote",
+      "when": "2025 – 2026",
+      "current": false,
+      "keyProject": {
+        "name": "Resume Intelligence Platform",
+        "alias": "Resume Parser",
+        "tagline": "AI-powered résumé extraction, analysis & candidate profiling — automating the full parsing → extraction → scoring → profiling pipeline.",
+        "tags": ["AI", "NLP", "Document Processing"],
+        "liveUrl": "https://hirelens-lma1.onrender.com",
+        "repoUrl": "https://github.com/ShrijalGoswami/Resume-Parser"
+      },
+      "points": [
+        "Designed and built the Resume Intelligence Platform (Resume Parser) — an AI-powered system for automated résumé extraction, analysis, and candidate profiling.",
+        "Engineered NLP-driven pipelines that pull structured information out of résumés and turn it into actionable hiring insights.",
+        "Owned the end-to-end workflow — document ingestion → parsing → intelligent data presentation — and shipped it as a production-ready app with a live deployment.",
+        "Built supporting ML and data-processing workflows to improve automation and decision-making efficiency."
+      ]
+    },
+    {
+      "stage": "Student leadership",
+      "role": "Active Member",
+      "org": "Data Science Club, VIT Bhopal",
+      "where": "VIT Bhopal",
+      "when": "Aug 2025 – present",
+      "current": true,
+      "points": [
+        "Collaborative EDA and data-cleaning projects; built and deployed small-scale predictive models.",
+        "Organized learning bootcamps for student developers."
+      ]
+    }
+  ],
+  "highlights": [
+    "GSSoC '26 open-source contributor",
+    "DataForge Hackathon finalist (IITR E-Summit '26)"
+  ],
+  "skills": {
+    "Languages": ["Python", "SQL", "C++", "TypeScript"],
+    "ML": ["Scikit-learn", "XGBoost", "stacked ensembles", "cross-validation", "explainability"],
+    "Retrieval / LLM": ["RAG pipelines", "BM25 + dense hybrid retrieval", "LangChain", "ChromaDB", "Groq", "Vertex AI"],
+    "Backend / Data": ["FastAPI", "REST API design", "data pipelines", "Pandas", "NumPy"]
+  },
+  "projects": [
+    {
+      "name": "Explainable RAG QA",
+      "what": "Hybrid retrieval question-answering with source attribution",
+      "detail": "Routes every query through two retrievers in parallel — BM25 for exact keywords, dense sentence-transformer vectors over ChromaDB for meaning — then fuses scores linearly before a Groq LLM writes a grounded, cited answer.",
+      "evidence": [
+        { "value": "α = 0.65", "label": "fusion weight that maximized Mean Reciprocal Rank (0.84) in a 0→1 sweep" },
+        { "value": "~45 ms", "label": "retrieval latency at scale, with incremental indexing (no full rebuilds)" }
+      ],
+      "stack": ["Python", "FastAPI", "ChromaDB", "BM25", "LangChain", "Groq"]
+    },
+    {
+      "name": "Heart-Disease Stacking Ensemble",
+      "what": "A diagnostic classifier that generalizes instead of memorizing",
+      "detail": "Level-0 Random Forest, XGBoost, and logistic regression feed their probabilities to a level-1 logistic-regression meta-learner — stacked generalization with 5-fold stratified cross-validation on the UCI heart-disease dataset, served over FastAPI.",
+      "evidence": [
+        { "value": "89.13%", "label": "cross-validated accuracy — 2.4 points over the best single model" },
+        { "value": "0.94", "label": "ROC-AUC on held-out folds" }
+      ],
+      "stack": ["Python", "Scikit-learn", "XGBoost", "FastAPI"]
+    },
+    {
+      "name": "Booklet Engine",
+      "what": "Structured AI pipeline for automated educational content — AKademy38",
+      "detail": "Replaced AKademy38's manual, hand-run AI booklet workflow with a structured generation pipeline: templated prompts, staged generation, and reuse of shared context so each booklet is assembled deterministically instead of re-prompted from scratch. The outcome is consistent output at a fraction of the cost, built to scale across the content catalog.",
+      "evidence": [
+        { "value": "~10×", "label": "lower token usage per booklet — from ≈40% to ≈4% of the prior budget" },
+        { "value": "100%", "label": "of the booklet workflow moved from manual to an automated pipeline — consistent at scale" }
+      ],
+      "stack": ["Python", "LLM pipelines", "Prompt engineering", "Content automation"]
+    }
+  ],
+  "ragPipeline": {
+    "_comment": "The honest architecture diagram on the site — this is the actual shape of the Explainable RAG system.",
+    "steps": ["query", "BM25 sparse + dense vector (parallel)", "linear fusion α=0.65", "grounded context", "Groq LLM", "cited answer"]
+  }
+}
