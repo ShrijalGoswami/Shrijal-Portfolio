@@ -10,7 +10,7 @@
   "role": "AI/ML Engineer",
   "tagline": "Turning research into production-grade AI systems.",
   "location": "Bhopal, India",
-  "availability": "Open to 2026 AI/ML internships & new-grad roles",
+  "availability": "Open to 2026 AI/ML internships · graduating 2028",
   "summary": "AI/ML engineer focused on the unglamorous part of AI that actually ships: hybrid retrieval (dense vector + sparse BM25), stacked ensembles that generalize, and explainable systems people can audit. B.Tech CS (AI & ML specialization) at VIT Bhopal.",
   "education": {
     "school": "VIT Bhopal University",
@@ -25,6 +25,14 @@
       "where": "Australia-based EdTech startup · Remote",
       "when": "2026 – present",
       "current": true,
+      "keyProject": {
+        "name": "Booklet Engine",
+        "alias": "structured AI content pipeline",
+        "tagline": "Replaced the manual AI booklet workflow with a deterministic generation pipeline — ~10× lower token cost per booklet, consistent at scale.",
+        "tags": ["AI", "Prompt Engineering", "Automation"],
+        "liveUrl": "",
+        "repoUrl": ""
+      },
       "points": [
         "Own AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.",
         "Replaced the manual AI booklet-generation workflow with a structured generation pipeline (the Booklet Engine), cutting token usage per booklet ~10× (≈40% → ≈4% of the prior budget).",
@@ -70,6 +78,34 @@
     "GSSoC '26 open-source contributor",
     "DataForge Hackathon finalist (IITR E-Summit '26)"
   ],
+  "research": [
+    {
+      "id": "R-01",
+      "title": "Entropy-Based Feature Engineering for Heart-Disease Prediction",
+      "focus": "Information-theoretic feature selection for clinical classifiers",
+      "detail": "Ranks and constructs features by entropy and mutual information so the model keeps the signal that drives generalization and discards what it would otherwise memorize — the methodological backbone of the stacked-ensemble classifier.",
+      "tags": ["Information theory", "Feature engineering", "Generalization"],
+      "outcome": "Shipped as the Heart-Disease Stacking Ensemble (89.13% CV accuracy)",
+      "link": { "label": "Code", "href": "https://github.com/ShrijalGoswami/Heart-Disease-Prediction" }
+    },
+    {
+      "id": "R-02",
+      "title": "Huffman-Inspired Adaptive Data Structures",
+      "focus": "Frequency-weighted structures that shorten the hot path",
+      "detail": "Adapts Huffman's frequency-coding principle to self-adjusting structures so the most-accessed elements sit on the cheapest access path — algorithmic groundwork for low-latency retrieval and indexing.",
+      "tags": ["Algorithms", "Data structures", "Latency"],
+      "outcome": "Informs the ~45 ms retrieval design in the RAG system"
+    },
+    {
+      "id": "R-03",
+      "title": "Explainable Retrieval-Based QA Systems",
+      "focus": "Auditable answers with first-class source attribution",
+      "detail": "Hybrid sparse + dense retrieval with linear score fusion and grounded generation, designed so every answer carries the evidence it was built from — an exploration that became a deployed system.",
+      "tags": ["Retrieval", "Explainability", "RAG"],
+      "outcome": "Shipped as the Explainable RAG QA system (α = 0.65, MRR 0.84)",
+      "link": { "label": "Code", "href": "https://github.com/ShrijalGoswami/Explainable-RAG-QA-System" }
+    }
+  ],
   "skills": {
     "Languages": ["Python", "SQL", "C++", "TypeScript"],
     "ML": ["Scikit-learn", "XGBoost", "stacked ensembles", "cross-validation", "explainability"],
@@ -78,6 +114,32 @@
   },
   "projects": [
     {
+      "name": "Resume Intelligence Platform",
+      "what": "AI résumé parsing, analysis & candidate profiling — deployed and live",
+      "detail": "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built, deployed, and publicly usable.",
+      "evidence": [
+        { "value": "Live", "label": "publicly deployed and usable — a running product, not a demo reel" },
+        { "value": "5-stage", "label": "NLP pipeline: extract → NER → taxonomy match → parse → score" }
+      ],
+      "stack": ["Python", "Streamlit", "spaCy", "NLP", "Groq LLM", "PDF processing"],
+      "links": {
+        "live": "https://hirelens-lma1.onrender.com",
+        "code": "https://github.com/ShrijalGoswami/Resume-Parser",
+        "note": "Free-tier hosting — first load can take ~30s to spin up."
+      }
+    },
+    {
+      "name": "Booklet Engine",
+      "what": "Structured AI pipeline for automated educational content — AKademy38",
+      "detail": "Replaced AKademy38's manual, hand-run AI booklet workflow with a structured generation pipeline: templated prompts, staged generation, and reuse of shared context so each booklet is assembled deterministically instead of re-prompted from scratch. The outcome is consistent output at a fraction of the cost, built to scale across the content catalog.",
+      "evidence": [
+        { "value": "~10×", "label": "lower token usage per booklet — ≈40% → ≈4% of the prior per-booklet token budget" },
+        { "value": "100%", "label": "of the booklet workflow moved from manual to an automated pipeline — consistent at scale" }
+      ],
+      "stack": ["Python", "LLM pipelines", "Prompt engineering", "Content automation"],
+      "links": { "internal": "Internal AKademy38 product" }
+    },
+    {
       "name": "Explainable RAG QA",
       "what": "Hybrid retrieval question-answering with source attribution",
       "detail": "Routes every query through two retrievers in parallel — BM25 for exact keywords, dense sentence-transformer vectors over ChromaDB for meaning — then fuses scores linearly before a Groq LLM writes a grounded, cited answer.",
@@ -85,7 +147,8 @@
         { "value": "α = 0.65", "label": "fusion weight that maximized Mean Reciprocal Rank (0.84) in a 0→1 sweep" },
         { "value": "~45 ms", "label": "retrieval latency at scale, with incremental indexing (no full rebuilds)" }
       ],
-      "stack": ["Python", "FastAPI", "ChromaDB", "BM25", "LangChain", "Groq"]
+      "stack": ["Python", "FastAPI", "ChromaDB", "BM25", "LangChain", "Groq"],
+      "links": { "code": "https://github.com/ShrijalGoswami/Explainable-RAG-QA-System" }
     },
     {
       "name": "Heart-Disease Stacking Ensemble",
@@ -95,17 +158,8 @@
         { "value": "89.13%", "label": "cross-validated accuracy — 2.4 points over the best single model" },
         { "value": "0.94", "label": "ROC-AUC on held-out folds" }
       ],
-      "stack": ["Python", "Scikit-learn", "XGBoost", "FastAPI"]
-    },
-    {
-      "name": "Booklet Engine",
-      "what": "Structured AI pipeline for automated educational content — AKademy38",
-      "detail": "Replaced AKademy38's manual, hand-run AI booklet workflow with a structured generation pipeline: templated prompts, staged generation, and reuse of shared context so each booklet is assembled deterministically instead of re-prompted from scratch. The outcome is consistent output at a fraction of the cost, built to scale across the content catalog.",
-      "evidence": [
-        { "value": "~10×", "label": "lower token usage per booklet — from ≈40% to ≈4% of the prior budget" },
-        { "value": "100%", "label": "of the booklet workflow moved from manual to an automated pipeline — consistent at scale" }
-      ],
-      "stack": ["Python", "LLM pipelines", "Prompt engineering", "Content automation"]
+      "stack": ["Python", "Scikit-learn", "XGBoost", "FastAPI"],
+      "links": { "code": "https://github.com/ShrijalGoswami/Heart-Disease-Prediction" }
     }
   ],
   "ragPipeline": {

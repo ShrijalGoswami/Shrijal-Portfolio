@@ -47,6 +47,54 @@ export default function Projects() {
                     </h3>
                     <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink/75">{project.detail}</p>
                     <p className="mt-4 text-[13px] text-ink/55">{project.stack.join(' · ')}</p>
+
+                    {(() => {
+                      const links = (project as {
+                        links?: { live?: string; code?: string; internal?: string; note?: string };
+                      }).links;
+                      if (!links) return null;
+                      return (
+                        <div className="relative z-10 mt-6 text-[13px]">
+                        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                          {links.live && (
+                            <a
+                              href={links.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-semibold text-paper transition-colors hover:bg-rust"
+                            >
+                              <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+                                {!reduce && (
+                                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper/80" />
+                                )}
+                                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                              </span>
+                              Live demo <span aria-hidden="true">↗</span>
+                            </a>
+                          )}
+                          {links.code && (
+                            <a
+                              href={links.code}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="nav-underline font-semibold text-ink/70 hover:text-rust"
+                            >
+                              View code <span aria-hidden="true">↗</span>
+                            </a>
+                          )}
+                          {links.internal && !links.live && (
+                            <span className="inline-flex items-center gap-1.5 text-[12px] text-ink/45">
+                              <span className="h-1.5 w-1.5 rounded-full bg-ink/30" aria-hidden="true" />
+                              {links.internal}
+                            </span>
+                          )}
+                        </div>
+                        {links.note && (
+                          <p className="mt-2.5 text-[12px] text-ink/45">{links.note}</p>
+                        )}
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Evidence: every number carries its label and context */}
@@ -55,9 +103,7 @@ export default function Projects() {
                     <dl className="mt-3 space-y-5">
                       {project.evidence.map((e) => (
                         <div key={e.value}>
-                          <dt className="text-3xl text-rust" style={{ fontFamily: 'var(--font-display)' }}>
-                            {e.value}
-                          </dt>
+                          <dt className="t-figure text-3xl text-rust">{e.value}</dt>
                           <dd className="mt-1 max-w-xs text-[13px] leading-relaxed text-ink/65">{e.label}</dd>
                         </div>
                       ))}

@@ -13,7 +13,7 @@ export default function About() {
 
         <Stagger className="md:col-span-8 md:col-start-5">
           <Item>
-            <h2 className="text-3xl leading-snug md:text-4xl" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="t-h2 max-w-2xl">
               Most AI demos die the moment they meet real traffic.
               <em className="text-rust"> I work on the part that survives.</em>
             </h2>

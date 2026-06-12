@@ -143,7 +143,7 @@ export default function Identity() {
             </div>
             <div>
               <dt className="text-[11px] uppercase tracking-[0.18em] text-ink/45">Status</dt>
-              <dd className="mt-1 font-semibold text-rust">Open to 2026 roles</dd>
+              <dd className="mt-1 font-semibold text-rust">Open to 2026 internships</dd>
             </div>
           </motion.dl>
         </div>

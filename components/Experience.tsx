@@ -103,20 +103,27 @@ export default function Experience() {
                               <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-rust">
                                 <span aria-hidden="true">★</span> Key project
                               </span>
-                              <a
-                                href={job.keyProject.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 rounded-full bg-rust px-2.5 py-1 text-[11px] font-semibold text-paper transition-colors hover:bg-ochre"
-                              >
-                                <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
-                                  {!reduce && (
-                                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper/80" />
-                                  )}
-                                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                              {job.keyProject.liveUrl ? (
+                                <a
+                                  href={job.keyProject.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 rounded-full bg-rust px-2.5 py-1 text-[11px] font-semibold text-paper transition-colors hover:bg-ochre"
+                                >
+                                  <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+                                    {!reduce && (
+                                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper/80" />
+                                    )}
+                                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                                  </span>
+                                  Live demo
+                                </a>
+                              ) : (
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-rust/40 px-2.5 py-1 text-[11px] font-semibold text-rust">
+                                  <span className="h-1.5 w-1.5 rounded-full bg-rust" aria-hidden="true" />
+                                  In production
                                 </span>
-                                Live demo
-                              </a>
+                              )}
                             </div>
 
                             <h4 className="mt-2 text-lg leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
@@ -136,24 +143,30 @@ export default function Experience() {
                               ))}
                             </div>
 
-                            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px]">
-                              <a
-                                href={job.keyProject.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="nav-underline font-semibold text-rust"
-                              >
-                                Live demo ↗
-                              </a>
-                              <a
-                                href={job.keyProject.repoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="nav-underline text-ink/65 hover:text-ink"
-                              >
-                                Code ↗
-                              </a>
-                            </div>
+                            {(job.keyProject.liveUrl || job.keyProject.repoUrl) && (
+                              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px]">
+                                {job.keyProject.liveUrl && (
+                                  <a
+                                    href={job.keyProject.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="nav-underline font-semibold text-rust"
+                                  >
+                                    Live demo ↗
+                                  </a>
+                                )}
+                                {job.keyProject.repoUrl && (
+                                  <a
+                                    href={job.keyProject.repoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="nav-underline text-ink/65 hover:text-ink"
+                                  >
+                                    Code ↗
+                                  </a>
+                                )}
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>

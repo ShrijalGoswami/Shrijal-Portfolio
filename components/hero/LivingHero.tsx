@@ -29,7 +29,7 @@ export default function LivingHero() {
       hero.target = 1;
       hero.reduced = true;
       gsap.set('.hero-identity', { opacity: 1, y: 0, filter: 'blur(0px)' });
-      gsap.set('.hero-hint, .hero-cue', { opacity: 0 });
+      gsap.set('.hero-hint, .hero-cue, .hero-standfirst', { opacity: 0 });
       gsap.set('.hero-veil', { opacity: 1 });
       return;
     }
@@ -58,6 +58,7 @@ export default function LivingHero() {
       tl.to('.hero-hint', { opacity: 1, duration: 0.04 }, 0.03)
         .to('.hero-cue', { opacity: 0, duration: 0.05 }, 0.08)
         .to('.hero-hint', { opacity: 0, duration: 0.06 }, 0.18)
+        .to('.hero-standfirst', { opacity: 0, duration: 0.08 }, 0.42)
         .to('.hero-veil', { opacity: 1, duration: 0.12 }, 0.82)
         .to('.hero-identity', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.13 }, 0.84);
 
@@ -98,8 +99,21 @@ export default function LivingHero() {
           }}
         />
 
+        {/* First-viewport value proposition — a poised statement over the living
+            network. States who, what, and the two shipped systems before any scroll.
+            Fades out (via the scroll timeline) before the identity climax resolves. */}
+        <div className="hero-standfirst pointer-events-none absolute left-1/2 top-28 -translate-x-1/2 px-6 text-center md:top-[14%]">
+          <p className="t-label text-rust">AI / ML Engineer</p>
+          <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink/70">
+            I build production AI systems — creator of the{' '}
+            <span className="font-semibold text-ink">Booklet Engine</span> and the{' '}
+            <span className="font-semibold text-ink">Resume Intelligence Platform</span>. Currently
+            AI Strategist at AKademy38.
+          </p>
+        </div>
+
         {/* Opening invitation. */}
-        <div className="hero-hint pointer-events-none absolute left-1/2 top-[20%] -translate-x-1/2 text-center">
+        <div className="hero-hint pointer-events-none absolute left-1/2 top-[30%] -translate-x-1/2 text-center">
           <p className="text-[12px] font-semibold uppercase tracking-[0.32em] text-ink/45">
             Move your cursor — then scroll
           </p>

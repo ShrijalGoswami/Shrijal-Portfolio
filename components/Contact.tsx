@@ -118,7 +118,7 @@ export default function Contact() {
     <section id="contact" className="mx-auto max-w-6xl border-t border-ink/10 px-5 py-20 md:px-8 md:py-28">
       <div className="grid gap-10 md:grid-cols-12">
         <div className="md:col-span-3">
-          <SectionLabel n="05" title="Contact" />
+          <SectionLabel n="06" title="Contact" />
         </div>
 
         <div className="md:col-span-9 md:col-start-4">
@@ -126,10 +126,7 @@ export default function Contact() {
             <p className="text-[13px] font-semibold tracking-[0.18em] uppercase text-rust">
               {resume.availability}
             </p>
-            <h2
-              className="mt-4 max-w-2xl text-3xl leading-snug md:text-5xl"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
+            <h2 className="t-h2 mt-4 max-w-2xl">
               If you need someone who treats <em className="text-rust">“it works on my machine”</em>{' '}
               as a bug report — let&apos;s talk.
             </h2>

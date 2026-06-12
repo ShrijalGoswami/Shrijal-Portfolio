@@ -84,12 +84,12 @@ export default function TerminalSection() {
     <section id="terminal" className="mx-auto max-w-6xl border-t border-ink/10 px-5 py-20 md:px-8 md:py-28">
       <div className="grid gap-10 md:grid-cols-12">
         <div className="md:col-span-3">
-          <SectionLabel n="04" title="Terminal" />
+          <SectionLabel n="05" title="Terminal" />
         </div>
 
         <div className="md:col-span-9 md:col-start-4">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="t-h2">
               Query the résumé <em className="text-rust">yourself.</em>
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink/75">
