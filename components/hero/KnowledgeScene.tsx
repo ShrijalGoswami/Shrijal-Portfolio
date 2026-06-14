@@ -167,7 +167,7 @@ function Scene({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
     hero.pointerX += (hero.rawX - hero.pointerX) * slow;
     hero.pointerY += (hero.rawY - hero.pointerY) * slow;
     const p = hero.progress;
-    const settle = smoothstep(0.82, 1, p); // network recedes as identity resolves
+    const settle = smoothstep(0.74, 1, p); // network recedes as identity resolves
 
     const g = groupRef.current;
     if (!g) return;
@@ -318,9 +318,9 @@ function Scene({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
         // labels recede hard at the climax so they don't clutter behind the identity
         const kindFade =
           n.kind === 'core'
-            ? 1 - smoothstep(0.78, 0.9, p)
+            ? 1 - smoothstep(0.70, 0.82, p)
             : n.kind === 'head'
-              ? 1 - smoothstep(0.8, 0.93, p)
+              ? 1 - smoothstep(0.72, 0.84, p)
               : 1;
         const op = visible && show ? rev * kindFade : 0;
         el.style.transform = `translate3d(${x}px, ${y}px, 0)`;

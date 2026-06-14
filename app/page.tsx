@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import NameIntro from '@/components/hero/NameIntro';
 import LivingHero from '@/components/hero/LivingHero';
+import AmbientField from '@/components/AmbientField';
 import Identity from '@/components/Identity';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <NameIntro />
       <Header />
+      <AmbientField />
       <main>
         <LivingHero />
         <Identity />

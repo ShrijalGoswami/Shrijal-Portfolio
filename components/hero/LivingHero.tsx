@@ -53,14 +53,15 @@ export default function LivingHero() {
       // Scrubbed DOM choreography across the same scroll range. Tween positions are
       // expressed as scroll fractions (timeline progress maps linearly under scrub).
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
+        scrollTrigger: { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.5 },
       });
-      tl.to('.hero-hint', { opacity: 1, duration: 0.04 }, 0.03)
-        .to('.hero-cue', { opacity: 0, duration: 0.05 }, 0.08)
-        .to('.hero-hint', { opacity: 0, duration: 0.06 }, 0.18)
-        .to('.hero-standfirst', { opacity: 0, duration: 0.08 }, 0.42)
-        .to('.hero-veil', { opacity: 1, duration: 0.12 }, 0.82)
-        .to('.hero-identity', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.13 }, 0.84);
+      tl.to('.hero-hint', { opacity: 1, duration: 0.05 }, 0.04)
+        .to('.hero-cue', { opacity: 0, duration: 0.06 }, 0.10)
+        .to('.hero-hint', { opacity: 0, duration: 0.06 }, 0.20)
+        // Standfirst stays visible as the network builds — fades as achievements complete.
+        .to('.hero-standfirst', { opacity: 0, duration: 0.09 }, 0.62)
+        .to('.hero-veil', { opacity: 1, duration: 0.14 }, 0.76)
+        .to('.hero-identity', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.15 }, 0.78);
 
       // Layout settles after fonts/canvas mount.
       ScrollTrigger.refresh();
@@ -74,7 +75,7 @@ export default function LivingHero() {
       ref={sectionRef}
       id="top"
       className="relative"
-      style={{ height: reduce ? '100svh' : '560vh', background: '#fcfbf8' }}
+      style={{ height: reduce ? '100svh' : '280vh', background: '#fcfbf8' }}
     >
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         <KnowledgeScene />
