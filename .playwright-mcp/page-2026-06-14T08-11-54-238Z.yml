@@ -1,0 +1,449 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - img
+    - generic:
+      - paragraph: AI/ML Engineer
+      - heading "Shrijal Goswami" [level=1]:
+        - generic:
+          - generic: Shrijal
+        - generic:
+          - generic: Goswami
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Shrijal Goswami" [ref=e4] [cursor=pointer]:
+        - /url: "#top"
+      - navigation "Primary" [ref=e5]:
+        - link "About" [ref=e6] [cursor=pointer]:
+          - /url: "#about"
+        - link "Experience" [ref=e7] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Work" [ref=e8] [cursor=pointer]:
+          - /url: "#work"
+        - link "Applied R&D" [ref=e9] [cursor=pointer]:
+          - /url: "#research"
+        - link "Terminal" [ref=e10] [cursor=pointer]:
+          - /url: "#terminal"
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e12]:
+        - link "GitHub" [ref=e13] [cursor=pointer]:
+          - /url: https://github.com/ShrijalGoswami
+          - img [ref=e14]
+        - link "LinkedIn" [ref=e17] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shrijal-goswami
+          - img [ref=e18]
+        - link "Resume" [ref=e22] [cursor=pointer]:
+          - /url: /Shrijal_Goswami_Resume.pdf
+  - main [ref=e23]:
+    - generic [ref=e25]:
+      - generic:
+        - paragraph: AI / ML Engineer
+        - paragraph: I build production AI systems — creator of the Booklet Engine and the Resume Intelligence Platform. Currently AI Strategist at AKademy38.
+      - generic:
+        - paragraph: Move your cursor — then scroll
+      - generic:
+        - paragraph: scroll
+      - navigation "Quick links" [ref=e27]:
+        - link "GitHub" [ref=e28] [cursor=pointer]:
+          - /url: https://github.com/ShrijalGoswami
+          - img [ref=e29]
+          - generic [ref=e32]: GitHub
+        - link "LinkedIn" [ref=e33] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shrijal-goswami
+          - img [ref=e34]
+          - generic [ref=e38]: LinkedIn
+        - link "Resume" [ref=e39] [cursor=pointer]:
+          - /url: /Shrijal_Goswami_Resume.pdf
+          - img [ref=e40]
+          - generic [ref=e43]: Resume
+        - link "Contact" [ref=e44] [cursor=pointer]:
+          - /url: "#contact"
+          - img [ref=e45]
+          - text: Contact
+      - generic:
+        - paragraph: Open to 2026 AI/ML internships · graduating 2028
+        - heading "Shrijal Goswami" [level=1]
+        - paragraph: I build the part of AI that survives real traffic — hybrid retrieval, ensembles that generalize, and models you can audit. Everything above is one system.
+        - generic [ref=e48]:
+          - link "Explore the work" [ref=e50] [cursor=pointer]:
+            - /url: "#about"
+          - link "or query my résumé ↓" [ref=e51] [cursor=pointer]:
+            - /url: "#terminal"
+        - generic [ref=e52]:
+          - link "GitHub" [ref=e53] [cursor=pointer]:
+            - /url: https://github.com/ShrijalGoswami
+          - link "LinkedIn" [ref=e54] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/shrijal-goswami
+          - link "Email" [ref=e55] [cursor=pointer]:
+            - /url: mailto:goswamivansh999@gmail.com
+    - generic [ref=e57]:
+      - generic [ref=e61]:
+        - img "Shrijal Goswami — AI/ML engineer" [ref=e63]
+        - generic [ref=e68]: In the loop · Bhopal, India
+      - generic [ref=e69]:
+        - paragraph [ref=e70]: The human in the loop
+        - heading "Behind every node above, the same person — building it, shipping it, and standing behind it in production." [level=2] [ref=e71]:
+          - text: Behind every node above, the same person —
+          - emphasis [ref=e72]: building it, shipping it,
+          - text: and standing behind it in production.
+        - paragraph [ref=e73]: I'm Shrijal Goswami. The hybrid retrieval, the ensembles, the pipelines in the map above are all things I've taken from a notebook to a live endpoint — I work on the unglamorous part of AI that has to keep running after the demo ends.
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - term [ref=e76]: Role
+            - definition [ref=e77]: AI/ML Engineer
+          - generic [ref=e78]:
+            - term [ref=e79]: Now
+            - definition [ref=e80]: AI Strategist · AKademy38
+          - generic [ref=e81]:
+            - term [ref=e82]: Status
+            - definition [ref=e83]: Open to 2026 internships
+    - generic [ref=e85]:
+      - generic [ref=e87]:
+        - generic [ref=e88]: "01"
+        - paragraph [ref=e89]: About
+      - generic [ref=e90]:
+        - heading "Most AI demos die the moment they meet real traffic. I work on the part that survives." [level=2] [ref=e92]:
+          - text: Most AI demos die the moment they meet real traffic.
+          - emphasis [ref=e93]: I work on the part that survives.
+        - generic [ref=e94]:
+          - paragraph [ref=e95]: "I'm a B.Tech CS student (AI & ML specialization) at VIT Bhopal, and the pattern in everything I build is the same: take a result that works in a notebook and make it inspectable, measurable, and deployable. Dense retrieval that misses exact keywords gets a sparse BM25 partner. A classifier that overfits gets stacked under a cross-validated meta-learner. A model that can't explain itself gets source attribution."
+          - paragraph [ref=e96]: Right now that means working as an AI Strategist at AKademy38, an Australia-based EdTech startup — where I rebuilt their manual AI booklet-generation workflow into a structured pipeline that cut token usage roughly 10× per booklet (≈40% → ≈4%) while keeping output consistent at scale. That role grew out of an AI/ML internship at Pinnacle Labs, where I shipped Python AI components behind FastAPI backends and tuned retrieval against real latency budgets — plus open-source contribution through GSSoC '26 and a finalist run at the DataForge hackathon.
+        - paragraph [ref=e98]: "What I bring to a team: practical ML (Scikit-learn, XGBoost), retrieval/LLM plumbing (LangChain, ChromaDB, Groq, Vertex AI), and the FastAPI engineering to put both behind an endpoint that doesn't fall over."
+    - generic [ref=e100]:
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]: "02"
+          - paragraph [ref=e104]: Experience
+        - paragraph [ref=e105]: From student projects to a hands-on internship to leading AI strategy — each step built on the last.
+      - generic [ref=e107]:
+        - article [ref=e114]:
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - paragraph [ref=e118]: 2026 – present
+              - paragraph [ref=e119]: current
+            - generic [ref=e121]:
+              - paragraph [ref=e122]: Professional role
+              - heading "AI Strategist · AKademy38" [level=3] [ref=e123]
+              - paragraph [ref=e124]: Australia-based EdTech startup · Remote
+              - list [ref=e125]:
+                - listitem [ref=e126]:
+                  - generic [ref=e128]: Own AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.
+                - listitem [ref=e129]:
+                  - generic [ref=e131]: Replaced the manual AI booklet-generation workflow with a structured generation pipeline (the Booklet Engine), cutting token usage per booklet ~10× (≈40% → ≈4% of the prior budget).
+                - listitem [ref=e132]:
+                  - generic [ref=e134]: Standardized prompt and pipeline design so output stays consistent as volume grows — measurably improving scalability, reliability, and operational efficiency of content production.
+              - generic [ref=e135]:
+                - generic [ref=e136]:
+                  - generic [ref=e137]:
+                    - generic [ref=e138]: ★
+                    - text: Key project
+                  - generic [ref=e139]: In production
+                - heading "Booklet Engine (structured AI content pipeline)" [level=4] [ref=e141]:
+                  - text: Booklet Engine
+                  - generic [ref=e142]: (structured AI content pipeline)
+                - paragraph [ref=e143]: Replaced the manual AI booklet workflow with a deterministic generation pipeline — ~10× lower token cost per booklet, consistent at scale.
+                - generic [ref=e144]:
+                  - generic [ref=e145]: AI
+                  - generic [ref=e146]: Prompt Engineering
+                  - generic [ref=e147]: Automation
+        - article [ref=e152]:
+          - generic [ref=e154]:
+            - generic [ref=e155]:
+              - paragraph [ref=e156]: 2025 – 2026
+              - paragraph [ref=e157]: completed
+            - generic [ref=e159]:
+              - paragraph [ref=e160]: Internship
+              - heading "AI/ML Intern · Pinnacle Labs" [level=3] [ref=e161]
+              - paragraph [ref=e162]: Kolkata · Remote
+              - list [ref=e163]:
+                - listitem [ref=e164]:
+                  - generic [ref=e166]: Designed and built the Resume Intelligence Platform (Resume Parser) — an AI-powered system for automated résumé extraction, analysis, and candidate profiling.
+                - listitem [ref=e167]:
+                  - generic [ref=e169]: Engineered NLP-driven pipelines that pull structured information out of résumés and turn it into actionable hiring insights.
+                - listitem [ref=e170]:
+                  - generic [ref=e172]: Owned the end-to-end workflow — document ingestion → parsing → intelligent data presentation — and shipped it as a production-ready app with a live deployment.
+                - listitem [ref=e173]:
+                  - generic [ref=e175]: Built supporting ML and data-processing workflows to improve automation and decision-making efficiency.
+              - generic [ref=e176]:
+                - generic [ref=e177]:
+                  - generic [ref=e178]:
+                    - generic [ref=e179]: ★
+                    - text: Key project
+                  - link "Live demo" [ref=e180] [cursor=pointer]:
+                    - /url: https://hirelens-lma1.onrender.com
+                    - text: Live demo
+                - heading "Resume Intelligence Platform (Resume Parser)" [level=4] [ref=e184]:
+                  - text: Resume Intelligence Platform
+                  - generic [ref=e185]: (Resume Parser)
+                - paragraph [ref=e186]: AI-powered résumé extraction, analysis & candidate profiling — automating the full parsing → extraction → scoring → profiling pipeline.
+                - generic [ref=e187]:
+                  - generic [ref=e188]: AI
+                  - generic [ref=e189]: NLP
+                  - generic [ref=e190]: Document Processing
+                - generic [ref=e191]:
+                  - link "Live demo ↗" [ref=e192] [cursor=pointer]:
+                    - /url: https://hirelens-lma1.onrender.com
+                  - link "Code ↗" [ref=e193] [cursor=pointer]:
+                    - /url: https://github.com/ShrijalGoswami/Resume-Parser
+        - article [ref=e199]:
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - paragraph [ref=e203]: Aug 2025 – present
+              - paragraph [ref=e204]: current
+            - generic [ref=e206]:
+              - paragraph [ref=e207]: Student leadership
+              - heading "Active Member · Data Science Club, VIT Bhopal" [level=3] [ref=e208]
+              - paragraph [ref=e209]: VIT Bhopal
+              - list [ref=e210]:
+                - listitem [ref=e211]:
+                  - generic [ref=e213]: Collaborative EDA and data-cleaning projects; built and deployed small-scale predictive models.
+                - listitem [ref=e214]:
+                  - generic [ref=e216]: Organized learning bootcamps for student developers.
+    - generic [ref=e218]:
+      - generic [ref=e220]:
+        - generic [ref=e221]: "03"
+        - paragraph [ref=e222]: Selected work
+      - generic [ref=e223]:
+        - article [ref=e225]:
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - paragraph [ref=e230]: 01 — AI résumé parsing, analysis & candidate profiling — deployed and live
+              - heading "Resume Intelligence Platform" [level=3] [ref=e231]
+              - paragraph [ref=e232]: "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built, deployed, and publicly usable."
+              - paragraph [ref=e233]: Python · Streamlit · spaCy · NLP · Groq LLM · PDF processing
+              - generic [ref=e234]:
+                - generic [ref=e235]:
+                  - link "Live demo" [ref=e236] [cursor=pointer]:
+                    - /url: https://hirelens-lma1.onrender.com
+                    - text: Live demo
+                    - generic [ref=e240]: ↗
+                  - link "View code" [ref=e241] [cursor=pointer]:
+                    - /url: https://github.com/ShrijalGoswami/Resume-Parser
+                    - text: View code ↗
+                - paragraph [ref=e242]: Free-tier hosting — first load can take ~30s to spin up.
+            - generic [ref=e243]:
+              - paragraph [ref=e244]: Measured
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - term [ref=e247]: Live
+                  - definition [ref=e248]: publicly deployed and usable — a running product, not a demo reel
+                - generic [ref=e249]:
+                  - term [ref=e250]: 5-stage
+                  - definition [ref=e251]: "NLP pipeline: extract → NER → taxonomy match → parse → score"
+        - article [ref=e253]:
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - paragraph [ref=e258]: 02 — Structured AI pipeline for automated educational content — AKademy38
+              - heading "Booklet Engine" [level=3] [ref=e259]
+              - paragraph [ref=e260]: "Replaced AKademy38's manual, hand-run AI booklet workflow with a structured generation pipeline: templated prompts, staged generation, and reuse of shared context so each booklet is assembled deterministically instead of re-prompted from scratch. The outcome is consistent output at a fraction of the cost, built to scale across the content catalog."
+              - paragraph [ref=e261]: Python · LLM pipelines · Prompt engineering · Content automation
+              - generic [ref=e264]: Internal AKademy38 product
+            - generic [ref=e266]:
+              - paragraph [ref=e267]: Measured
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - term [ref=e270]: ~10×
+                  - definition [ref=e271]: lower token usage per booklet — ≈40% → ≈4% of the prior per-booklet token budget
+                - generic [ref=e272]:
+                  - term [ref=e273]: 100%
+                  - definition [ref=e274]: of the booklet workflow moved from manual to an automated pipeline — consistent at scale
+        - article [ref=e276]:
+          - generic [ref=e279]:
+            - generic [ref=e280]:
+              - paragraph [ref=e281]: 03 — Hybrid retrieval question-answering with source attribution
+              - heading "Explainable RAG QA" [level=3] [ref=e282]
+              - paragraph [ref=e283]: Routes every query through two retrievers in parallel — BM25 for exact keywords, dense sentence-transformer vectors over ChromaDB for meaning — then fuses scores linearly before a Groq LLM writes a grounded, cited answer.
+              - paragraph [ref=e284]: Python · FastAPI · ChromaDB · BM25 · LangChain · Groq
+              - link "View code" [ref=e287] [cursor=pointer]:
+                - /url: https://github.com/ShrijalGoswami/Explainable-RAG-QA-System
+                - text: View code ↗
+            - generic [ref=e288]:
+              - paragraph [ref=e289]: Measured
+              - generic [ref=e290]:
+                - generic [ref=e291]:
+                  - term [ref=e292]: α = 0.65
+                  - definition [ref=e293]: fusion weight that maximized Mean Reciprocal Rank (0.84) in a 0→1 sweep
+                - generic [ref=e294]:
+                  - term [ref=e295]: ~45 ms
+                  - definition [ref=e296]: retrieval latency at scale, with incremental indexing (no full rebuilds)
+        - article [ref=e298]:
+          - generic [ref=e301]:
+            - generic [ref=e302]:
+              - paragraph [ref=e303]: 04 — A diagnostic classifier that generalizes instead of memorizing
+              - heading "Heart-Disease Stacking Ensemble" [level=3] [ref=e304]
+              - paragraph [ref=e305]: Level-0 Random Forest, XGBoost, and logistic regression feed their probabilities to a level-1 logistic-regression meta-learner — stacked generalization with 5-fold stratified cross-validation on the UCI heart-disease dataset, served over FastAPI.
+              - paragraph [ref=e306]: Python · Scikit-learn · XGBoost · FastAPI
+              - link "View code" [ref=e309] [cursor=pointer]:
+                - /url: https://github.com/ShrijalGoswami/Heart-Disease-Prediction
+                - text: View code ↗
+            - generic [ref=e310]:
+              - paragraph [ref=e311]: Measured
+              - generic [ref=e312]:
+                - generic [ref=e313]:
+                  - term [ref=e314]: 89.13%
+                  - definition [ref=e315]: cross-validated accuracy — 2.4 points over the best single model
+                - generic [ref=e316]:
+                  - term [ref=e317]: "0.94"
+                  - definition [ref=e318]: ROC-AUC on held-out folds
+    - generic [ref=e320]:
+      - generic [ref=e322]:
+        - generic [ref=e323]: "04"
+        - paragraph [ref=e324]: Applied research
+      - generic [ref=e325]:
+        - generic [ref=e326]:
+          - heading "The methods behind the systems." [level=2] [ref=e327]:
+            - text: The methods
+            - emphasis [ref=e328]: behind
+            - text: the systems.
+          - paragraph [ref=e329]: Applied explorations, not formal publications — the ideas I reach for when a model has to generalize, an answer has to be auditable, or a lookup has to stay fast. Each one shows up in something I shipped; code is linked where it's public.
+        - generic [ref=e330]:
+          - article [ref=e332]:
+            - generic [ref=e333]: R-01
+            - generic [ref=e334]:
+              - heading "Entropy-Based Feature Engineering for Heart-Disease Prediction" [level=3] [ref=e335]
+              - paragraph [ref=e336]: Information-theoretic feature selection for clinical classifiers
+              - paragraph [ref=e337]: Ranks and constructs features by entropy and mutual information so the model keeps the signal that drives generalization and discards what it would otherwise memorize — the methodological backbone of the stacked-ensemble classifier.
+              - generic [ref=e338]:
+                - generic [ref=e339]: Information theory
+                - generic [ref=e340]: Feature engineering
+                - generic [ref=e341]: Generalization
+              - generic [ref=e342]:
+                - paragraph [ref=e343]:
+                  - generic [ref=e345]: Shipped as the Heart-Disease Stacking Ensemble (89.13% CV accuracy)
+                - link "Code ↗" [ref=e346] [cursor=pointer]:
+                  - /url: https://github.com/ShrijalGoswami/Heart-Disease-Prediction
+          - article [ref=e348]:
+            - generic [ref=e349]: R-02
+            - generic [ref=e350]:
+              - heading "Huffman-Inspired Adaptive Data Structures" [level=3] [ref=e351]
+              - paragraph [ref=e352]: Frequency-weighted structures that shorten the hot path
+              - paragraph [ref=e353]: Adapts Huffman's frequency-coding principle to self-adjusting structures so the most-accessed elements sit on the cheapest access path — algorithmic groundwork for low-latency retrieval and indexing.
+              - generic [ref=e354]:
+                - generic [ref=e355]: Algorithms
+                - generic [ref=e356]: Data structures
+                - generic [ref=e357]: Latency
+              - paragraph [ref=e359]:
+                - generic [ref=e361]: Informs the ~45 ms retrieval design in the RAG system
+          - article [ref=e363]:
+            - generic [ref=e364]: R-03
+            - generic [ref=e365]:
+              - heading "Explainable Retrieval-Based QA Systems" [level=3] [ref=e366]
+              - paragraph [ref=e367]: Auditable answers with first-class source attribution
+              - paragraph [ref=e368]: Hybrid sparse + dense retrieval with linear score fusion and grounded generation, designed so every answer carries the evidence it was built from — an exploration that became a deployed system.
+              - generic [ref=e369]:
+                - generic [ref=e370]: Retrieval
+                - generic [ref=e371]: Explainability
+                - generic [ref=e372]: RAG
+              - generic [ref=e373]:
+                - paragraph [ref=e374]:
+                  - generic [ref=e376]: Shipped as the Explainable RAG QA system (α = 0.65, MRR 0.84)
+                - link "Code ↗" [ref=e377] [cursor=pointer]:
+                  - /url: https://github.com/ShrijalGoswami/Explainable-RAG-QA-System
+    - generic [ref=e379]:
+      - generic [ref=e381]:
+        - generic [ref=e382]: "05"
+        - paragraph [ref=e383]: Terminal
+      - generic [ref=e384]:
+        - generic [ref=e385]:
+          - heading "Query the résumé yourself." [level=2] [ref=e386]:
+            - text: Query the résumé
+            - emphasis [ref=e387]: yourself.
+          - paragraph [ref=e388]:
+            - text: A real shell over my résumé data — it boots when you arrive, then just
+            - emphasis [ref=e389]: click a command
+            - text: . Each one runs instantly and the output streams back, live. Try
+            - code [ref=e390]: projects
+            - text: or
+            - code [ref=e391]: research
+            - text: .
+        - generic [ref=e393]:
+          - paragraph [ref=e395]: guest@shrijal — zsh
+          - generic [ref=e401]:
+            - button "projects" [ref=e402]
+            - button "research" [ref=e403]
+            - button "experience" [ref=e404]
+            - button "hackathons" [ref=e405]
+            - button "resume" [ref=e406]
+            - button "github" [ref=e407]
+            - button "linkedin" [ref=e408]
+            - button "contact" [ref=e409]
+        - figure "For the record — the real architecture behind the Explainable RAG project" [ref=e411]:
+          - generic [ref=e412]: For the record — the real architecture behind the Explainable RAG project
+          - generic [ref=e415]:
+            - generic [ref=e416]:
+              - generic [ref=e417]: query
+              - generic [ref=e418]: →
+            - generic [ref=e419]:
+              - generic [ref=e420]: BM25 sparse + dense vector (parallel)
+              - generic [ref=e421]: →
+            - generic [ref=e422]:
+              - generic [ref=e423]: linear fusion α=0.65
+              - generic [ref=e424]: →
+            - generic [ref=e425]:
+              - generic [ref=e426]: grounded context
+              - generic [ref=e427]: →
+            - generic [ref=e428]:
+              - generic [ref=e429]: Groq LLM
+              - generic [ref=e430]: →
+            - generic [ref=e432]: cited answer
+    - generic [ref=e437]:
+      - generic [ref=e439]:
+        - generic [ref=e440]: "06"
+        - paragraph [ref=e441]: Contact
+      - generic [ref=e448]:
+        - generic [ref=e449]: Open to 2026 internships, research & AI collaboration
+        - generic [ref=e454]:
+          - generic [ref=e455]:
+            - heading "Good systems begin with a good question." [level=2] [ref=e456]:
+              - text: Good systems begin
+              - text: with a good
+              - emphasis [ref=e457]: question
+              - text: .
+            - paragraph [ref=e458]: Hiring for an AI/ML role, weighing a research idea, or have a system worth building? Write below and it reaches my inbox directly — no portal, no auto-reply.
+            - generic [ref=e459]:
+              - paragraph [ref=e460]: Or reach me directly
+              - generic [ref=e461]:
+                - link "Email" [ref=e462] [cursor=pointer]:
+                  - /url: mailto:goswamivansh999@gmail.com
+                  - img [ref=e463]
+                  - text: Email
+                - link "LinkedIn" [ref=e466] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/shrijal-goswami
+                  - img [ref=e467]
+                  - text: LinkedIn
+                - link "GitHub" [ref=e471] [cursor=pointer]:
+                  - /url: https://github.com/ShrijalGoswami
+                  - img [ref=e472]
+                  - text: GitHub
+                - link "Résumé" [ref=e475] [cursor=pointer]:
+                  - /url: /Shrijal_Goswami_Resume.pdf
+                  - img [ref=e476]
+                  - text: Résumé
+              - paragraph [ref=e479]:
+                - text: "Direct:"
+                - link "goswamivansh999@gmail.com" [ref=e480] [cursor=pointer]:
+                  - /url: mailto:goswamivansh999@gmail.com
+          - generic [ref=e483]:
+            - generic [ref=e484]:
+              - heading "Send a note" [level=3] [ref=e485]
+              - generic [ref=e486]: Replies in ~12h
+            - generic [ref=e487]:
+              - generic [ref=e488]:
+                - generic [ref=e489]: Name
+                - textbox "Name" [ref=e490]:
+                  - /placeholder: Your name
+              - generic [ref=e491]:
+                - generic [ref=e492]: Email
+                - textbox "Email" [ref=e493]:
+                  - /placeholder: you@company.com
+            - generic [ref=e494]:
+              - generic [ref=e495]: Message
+              - textbox "Message" [ref=e496]:
+                - /placeholder: A line about the role, problem, or system you have in mind…
+            - button "Send message" [ref=e499]:
+              - text: Send message
+              - generic [ref=e500]: →
+  - contentinfo [ref=e501]:
+    - generic [ref=e502]:
+      - paragraph [ref=e503]: © 2026 Shrijal Goswami · Bhopal, India
+      - paragraph [ref=e504]: Open to 2026 AI/ML internships · graduating 2028
