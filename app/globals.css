@@ -117,8 +117,43 @@ body::after {
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .nav-underline:hover::after,
-.nav-underline:focus-visible::after {
+.nav-underline:focus-visible::after,
+.nav-underline.is-active::after {
   transform: scaleX(1);
+}
+
+/* ── Capabilities ribbon (StackMarquee) ──────────────────────────────────
+   Two identical groups translate left by exactly half the track for a seamless
+   loop. Edge-fade mask so items dissolve in/out rather than hard-clipping. */
+.marquee {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+.marquee__track {
+  animation: marquee-drift 38s linear infinite;
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marquee-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 /* Scroll lock while the opening name sequence plays */
@@ -144,5 +179,15 @@ html.intro-lock body {
   }
   .nav-underline::after {
     transition: none;
+  }
+  /* Stop the drift; let the single set wrap and center instead of overflowing. */
+  .marquee__track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .marquee__group[aria-hidden='true'] {
+    display: none;
   }
 }

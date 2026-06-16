@@ -1,7 +1,7 @@
 'use client';
 
 import SectionLabel from './SectionLabel';
-import { Stagger, Item } from './motion';
+import { Stagger, Item, MaskReveal } from './motion';
 
 export default function About() {
   return (
@@ -11,15 +11,16 @@ export default function About() {
           <SectionLabel n="01" title="About" />
         </div>
 
-        <Stagger className="md:col-span-8 md:col-start-5">
-          <Item>
-            <h2 className="t-h2 max-w-2xl">
-              Most AI demos die the moment they meet real traffic.
-              <em className="text-rust"> I work on the part that survives.</em>
-            </h2>
-          </Item>
+        <div className="md:col-span-8 md:col-start-5">
+          <h2 className="t-h2 max-w-2xl">
+            <MaskReveal>Most AI demos die the moment they meet real traffic.</MaskReveal>
+            <MaskReveal delay={0.12} className="text-rust">
+              <em>I work on the part that survives.</em>
+            </MaskReveal>
+          </h2>
 
-          <Item className="mt-8 max-w-2xl space-y-5 text-[16px] leading-relaxed text-ink/75">
+          <Stagger className="mt-8">
+          <Item className="max-w-2xl space-y-5 text-[16px] leading-relaxed text-ink/75">
             <p>
               I&apos;m a B.Tech CS student (AI &amp; ML specialization) at VIT Bhopal, and the
               pattern in everything I build is the same: take a result that works in a notebook and
@@ -46,7 +47,8 @@ export default function About() {
               an endpoint that doesn&apos;t fall over.
             </p>
           </Item>
-        </Stagger>
+          </Stagger>
+        </div>
       </div>
     </section>
   );

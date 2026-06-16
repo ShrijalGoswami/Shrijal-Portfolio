@@ -1,9 +1,17 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useReducedMotion, useSpring, type Variants } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import {
+  animate,
+  motion,
+  useInView,
+  useReducedMotion,
+  useSpring,
+  type Variants,
+} from 'framer-motion';
 
 export const EASE: [number, number, number, number] = [0.2, 0.7, 0.2, 1];
+const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 /** Single-element scroll reveal: fade + rise as it enters the viewport. */
 export function Reveal({
@@ -143,6 +151,91 @@ export function DriftWash({
       }
       transition={{ duration, delay, repeat: Infinity, ease: 'easeInOut' }}
     />
+  );
+}
+
+/**
+ * Masked headline reveal — the line rises out of a clip mask as it enters view.
+ * Reuses the opening NameIntro language so section headlines feel of-a-piece with
+ * the intro. Preserves any inner markup (e.g. <em>) since it animates the whole line.
+ * Render one per visual line of a headline; stagger with `delay`.
+ */
+export function MaskReveal({
+  children,
+  className,
+  delay = 0,
+  duration = 0.9,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  duration?: number;
+}) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <span className={`block ${className ?? ''}`}>{children}</span>;
+  }
+
+  return (
+    <span className={`block overflow-hidden pb-[0.12em] ${className ?? ''}`}>
+      <motion.span
+        className="block will-change-transform"
+        initial={{ y: '115%' }}
+        whileInView={{ y: '0%' }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration, delay, ease: EASE_OUT }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
+/**
+ * Animated figure — counts up to the value when it scrolls into view. Parses the
+ * first number out of a label ("89.13%", "~10×", "α = 0.65", "~45 ms") and animates
+ * just that number, preserving prefix, suffix, and decimal precision. Non-numeric
+ * values ("Live", "5-stage" keeps its 5) render statically / partially as sensible.
+ */
+export function CountUp({
+  value,
+  className,
+  duration = 1.5,
+}: {
+  value: string;
+  className?: string;
+  duration?: number;
+}) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+
+  const match = value.match(/-?\d+(?:\.\d+)?/);
+  const hasNum = !!match;
+  const target = match ? parseFloat(match[0]) : 0;
+  const decimals = match && match[0].includes('.') ? match[0].split('.')[1].length : 0;
+  const prefix = match ? value.slice(0, match.index!) : '';
+  const suffix = match ? value.slice(match.index! + match[0].length) : '';
+
+  const [display, setDisplay] = useState(() =>
+    !hasNum || reduce ? value : prefix + (0).toFixed(decimals) + suffix,
+  );
+
+  useEffect(() => {
+    if (!hasNum || reduce || !inView) return;
+    const controls = animate(0, target, {
+      duration,
+      ease: EASE,
+      onUpdate: (v) => setDisplay(prefix + v.toFixed(decimals) + suffix),
+    });
+    return () => controls.stop();
+  }, [hasNum, reduce, inView, target, decimals, prefix, suffix, duration]);
+
+  return (
+    <span ref={ref} className={className}>
+      {display}
+    </span>
   );
 }
 

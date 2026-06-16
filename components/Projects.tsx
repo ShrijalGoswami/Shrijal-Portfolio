@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import resume from '@/data/resume.json';
 import SectionLabel from './SectionLabel';
-import { Stagger, Item } from './motion';
+import { Stagger, Item, CountUp } from './motion';
 
 const WASHES = ['#e8927c', '#d97706', '#c2410c'];
 
@@ -103,7 +103,9 @@ export default function Projects() {
                     <dl className="mt-3 space-y-5">
                       {project.evidence.map((e) => (
                         <div key={e.value}>
-                          <dt className="t-figure text-3xl text-rust">{e.value}</dt>
+                          <dt className="t-figure text-3xl text-rust">
+                            <CountUp value={e.value} />
+                          </dt>
                           <dd className="mt-1 max-w-xs text-[13px] leading-relaxed text-ink/65">{e.label}</dd>
                         </div>
                       ))}
