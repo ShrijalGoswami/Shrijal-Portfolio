@@ -120,7 +120,7 @@ export default function Contact() {
   };
 
   const field =
-    'w-full rounded-xl border border-ink/15 bg-ink/[0.03] px-4 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-rust focus:bg-paper focus:ring-1 focus:ring-rust/25 disabled:opacity-60';
+    'w-full rounded-xl border border-ink/15 bg-ink/[0.04] px-4 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-rust focus:bg-ink/[0.08] focus:ring-1 focus:ring-rust/30 disabled:opacity-60';
 
   return (
     <section id="contact" className="border-t border-ink/10">
@@ -175,7 +175,7 @@ export default function Contact() {
 
             <div className="relative flex min-h-[34rem] flex-col gap-10 p-6 sm:min-h-[40rem] sm:p-10 lg:min-h-[44rem] md:p-14">
               {/* Availability badge — openness, stated up front */}
-              <div className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[12.5px] font-medium tracking-wide text-paper/90 backdrop-blur-sm">
+              <div className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[12.5px] font-medium tracking-wide text-paper/90">
                 <span className="relative flex h-2 w-2" aria-hidden>
                   {!reduce && (
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-clay opacity-75" />
@@ -193,7 +193,7 @@ export default function Contact() {
                 {/* Left — the invitation */}
                 <div>
                   <h2
-                    className="t-display max-w-xl text-[2.1rem] text-paper drop-shadow-[0_2px_18px_rgba(20,12,8,0.55)] sm:text-[2.6rem] lg:text-[3.1rem]"
+                    className="t-display max-w-xl text-[2.1rem] text-paper drop-shadow-[0_2px_24px_rgba(0,0,0,0.6)] sm:text-[2.6rem] lg:text-[3.1rem]"
                     style={{ lineHeight: 1.06 }}
                   >
                     Good systems begin
@@ -218,7 +218,7 @@ export default function Contact() {
                           key={label}
                           href={href}
                           {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                          className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[13px] font-medium text-paper/90 backdrop-blur-sm transition-colors hover:border-white/35 hover:bg-white/20"
+                          className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[13px] font-medium text-paper/90 transition-colors hover:border-white/35 hover:bg-white/20"
                         >
                           <Icon className="h-[15px] w-[15px] text-clay transition-colors group-hover:text-paper" />
                           {label}
@@ -239,7 +239,7 @@ export default function Contact() {
 
                 {/* Right — the form, on a solid panel for effortless readability */}
                 <Reveal delay={0.1} y={20}>
-                  <div className="rounded-2xl bg-paper p-5 shadow-[0_30px_70px_-30px_rgba(43,26,18,0.6)] ring-1 ring-ink/5 sm:p-7">
+                  <div className="glass rounded-2xl p-5 sm:p-7">
                     <AnimatePresence mode="wait" initial={false}>
                       {sent ? (
                         // ── Success state ──────────────────────────────────

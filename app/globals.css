@@ -1,19 +1,33 @@
 @import "tailwindcss";
 
 /*
-  Warm "engineering field-notes" system — alive, layered, no blue, no purple.
+  ── WARM-DARK HYBRID ──────────────────────────────────────────────────────
+  A nocturnal "engineering field-notes" system. Espresso ground, warm-sand ink,
+  rust + ochre ember accents that glow against the dark. No blue, no purple.
+
+  Token semantics are preserved from the light build so component classes keep
+  meaning: `paper` = the ground, `ink` = primary text, `sand` = an elevated
+  surface fill. They were light; now they're dark — accents brightened to pop.
 */
 @theme inline {
-  --color-paper: #fbf6ee;
-  --color-ink: #2b1a12;
-  --color-rust: #c2410c;
-  --color-ochre: #d97706;
-  --color-clay: #e8927c;
-  --color-sand: #f3e3d0;
+  --color-paper: #fbf1f1;     /* blush-cream ground */
+  --color-surface: #fff8f7;   /* raised panel — near-white blush */
+  --color-surface-2: #f7e7e8; /* deeper panel / hover */
+  --color-ink: #3a2630;       /* deep plum text */
+  --color-sand: #f6e5e7;      /* soft blush fill */
+  --color-line: #ecd3d6;      /* hairline / divider */
+  --color-rust: #cf5d72;      /* rose — primary accent */
+  --color-ochre: #e07a5f;     /* coral — secondary accent */
+  --color-clay: #e0938a;      /* soft peach-rose */
+  --color-onaccent: #fff6f6;  /* near-white text that sits ON accents */
 
   --font-display: var(--font-fraunces);
   --font-body: var(--font-hanken);
   --font-mono: var(--font-jbmono);
+}
+
+html {
+  background: #fbf1f1;
 }
 
 body {
@@ -23,32 +37,45 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Film-grain over the ground — texture, not noise-for-noise's-sake */
+/* Ambient ember warmth — fixed radial washes so the dark is never flat black.
+   Sits behind everything (the canvas field draws over it at z -1). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(80% 55% at 18% 8%, rgba(207, 93, 114, 0.10) 0%, transparent 55%),
+    radial-gradient(70% 50% at 88% 22%, rgba(224, 122, 95, 0.08) 0%, transparent 55%),
+    radial-gradient(90% 70% at 50% 110%, rgba(207, 93, 114, 0.07) 0%, transparent 60%);
+}
+
+/* Film-grain over the ground — texture, not noise-for-noise's-sake.
+   Screen blend on dark so the grain reads as faint warm light, not dirt. */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.28;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: rgba(194, 65, 12, 0.18);
-  color: var(--color-ink);
+  background: rgba(207, 93, 114, 0.22);
+  color: #3a2630;
 }
 
-:where(a, button, input, [tabindex]):focus-visible {
+:where(a, button, input, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--color-rust);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 /* ── Type system ─────────────────────────────────────────────────────────
-   One documented hierarchy, used across every section for engineering precision.
-
    .t-display  Hero / identity statements   Fraunces · fluid · tight tracking
    .t-h2       Section titles               Fraunces · clamp(1.75→2.5rem)
    .t-body     Paragraphs                   Hanken · 17px · 1.7 line-height
@@ -67,37 +94,50 @@ body::after {
   letter-spacing: -0.01em;
 }
 .t-body {
-  font-size: 1.0625rem; /* 17px */
+  font-size: 1.0625rem;
   line-height: 1.7;
 }
 .t-meta {
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.8125rem;
   line-height: 1.6;
 }
 .t-label {
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
 
-/* Tabular, even figures for every metric — the data reads as engineered */
+/* Tabular figures for every metric — data reads as engineered */
 .t-figure {
   font-family: var(--font-display);
   font-variant-numeric: tabular-nums lining-nums;
   letter-spacing: -0.01em;
 }
 
-/* Warm glass: frosted panel that actually refracts the washes behind it */
+/* On the light blush theme a glow reads as a smudge — keep the classes as no-ops
+   so markup stays unchanged, with only the faintest lift. */
+.glow-rust,
+.glow-ochre {
+  text-shadow: none;
+}
+
+/* Raised panel — light frosted surface (no backdrop-filter; kept solid for perf). */
 .glass {
-  background: rgba(255, 252, 245, 0.45);
-  backdrop-filter: blur(14px) saturate(1.4);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  border: 1px solid rgba(43, 26, 18, 0.1);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 251, 251, 0.88) 0%,
+    rgba(251, 238, 240, 0.93) 100%
+  );
+  border: 1px solid rgba(58, 38, 48, 0.08);
   box-shadow:
-    0 18px 40px -18px rgba(120, 53, 15, 0.22),
-    0 4px 12px -6px rgba(43, 26, 18, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    0 26px 55px -30px rgba(120, 45, 65, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.65) inset;
+}
+
+/* Hairline border helper used by cards/timeline */
+.hairline {
+  border-color: var(--color-line);
 }
 
 /* Animated underline for nav links */
@@ -120,6 +160,47 @@ body::after {
 .nav-underline:focus-visible::after,
 .nav-underline.is-active::after {
   transform: scaleX(1);
+}
+
+/* ── Falling blossom petals (BlossomPetals) ──────────────────────────────
+   Two nested animations per petal: the outer falls top→bottom (linear, the
+   whole viewport height), the inner sways side-to-side and rotates (ease,
+   alternating) so each petal flutters like it's caught in a spring breeze.
+   GPU-only transforms — cheap even with a couple dozen petals. */
+.petal-fall {
+  position: absolute;
+  top: 0;
+  will-change: transform;
+  animation: petal-fall linear infinite;
+}
+.petal-sway {
+  display: block;
+  will-change: transform;
+  animation: petal-sway ease-in-out infinite alternate;
+}
+@keyframes petal-fall {
+  from { transform: translate3d(0, -14vh, 0); }
+  to { transform: translate3d(0, 114vh, 0); }
+}
+@keyframes petal-sway {
+  from { transform: translateX(-13px) rotate(-38deg); }
+  to { transform: translateX(13px) rotate(44deg); }
+}
+
+/* Scroll lock while the opening name sequence plays */
+html.intro-lock,
+html.intro-lock body {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Terminal cursor */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.term-cursor {
+  animation: blink 1.1s step-end infinite;
 }
 
 /* ── Capabilities ribbon (StackMarquee) ──────────────────────────────────
@@ -148,28 +229,8 @@ body::after {
   animation-play-state: paused;
 }
 @keyframes marquee-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-/* Scroll lock while the opening name sequence plays */
-html.intro-lock,
-html.intro-lock body {
-  overflow: hidden;
-  height: 100%;
-}
-
-/* Terminal cursor */
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-.term-cursor {
-  animation: blink 1.1s step-end infinite;
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -180,7 +241,6 @@ html.intro-lock body {
   .nav-underline::after {
     transition: none;
   }
-  /* Stop the drift; let the single set wrap and center instead of overflowing. */
   .marquee__track {
     animation: none;
     width: 100%;

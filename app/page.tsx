@@ -3,7 +3,9 @@ import ScrollProgress from '@/components/ScrollProgress';
 import NameIntro from '@/components/hero/NameIntro';
 import LivingHero from '@/components/hero/LivingHero';
 import AmbientField from '@/components/AmbientField';
+import BlossomPetals from '@/components/BlossomPetals';
 import Identity from '@/components/Identity';
+import StatsBand from '@/components/StatsBand';
 import About from '@/components/About';
 import StackMarquee from '@/components/StackMarquee';
 import Experience from '@/components/Experience';
@@ -20,9 +22,11 @@ export default function Home() {
       <ScrollProgress />
       <Header />
       <AmbientField />
+      <BlossomPetals />
       <main>
         <LivingHero />
         <Identity />
+        <StatsBand />
         <About />
         <StackMarquee />
         <Experience />

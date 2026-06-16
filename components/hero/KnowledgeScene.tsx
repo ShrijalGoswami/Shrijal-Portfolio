@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { NODES, EDGES, type GraphNode } from './network';
 import { hero, smoothstep } from './store';
 
-const INK = new THREE.Color('#2b1a12');
-const RUST = new THREE.Color('#c2410c');
+const INK = new THREE.Color('#3a2630'); // warm sand — nodes/lines glow on the dark ground
+const RUST = new THREE.Color('#cf5d72'); // brightened ember-rust to match the dark theme
 const SEG = 28; // samples per connection line
 
 const RADIUS: Record<GraphNode['kind'], number> = { core: 0.17, head: 0.11, leaf: 0.065 };
@@ -390,6 +390,20 @@ function Labels({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
 
 export default function KnowledgeScene() {
   const labelEls = useRef<HTMLDivElement[]>([]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  // Pause the entire render loop (raycast + draw) once the hero scrolls offscreen
+  // — otherwise it keeps rendering full-tilt behind every section below it.
+  const [active, setActive] = useState(true);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), {
+      threshold: 0,
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // Pointer + reduced-motion wiring (kept outside the frame loop).
   useEffect(() => {
@@ -408,10 +422,11 @@ export default function KnowledgeScene() {
   }, []);
 
   return (
-    <div className="absolute inset-0">
+    <div ref={rootRef} className="absolute inset-0">
       <Canvas
+        frameloop={active ? 'always' : 'never'}
         camera={{ position: [0, 0, 11], fov: 40 }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         style={{ background: 'transparent' }}
       >

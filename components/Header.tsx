@@ -52,10 +52,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b backdrop-blur-md backdrop-saturate-150 transition-colors duration-300 ${
+      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
         scrolled
-          ? 'border-ink/10 bg-paper/90 shadow-[0_10px_30px_-22px_rgba(120,53,15,0.45)]'
-          : 'border-transparent bg-paper/70'
+          ? 'border-ink/10 bg-[#fbf1f1]/95 shadow-[0_10px_30px_-22px_rgba(0,0,0,0.6)]'
+          : 'border-transparent bg-[#fbf1f1]/80'
       }`}
     >
       <div

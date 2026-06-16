@@ -75,7 +75,7 @@ export default function LivingHero() {
       ref={sectionRef}
       id="top"
       className="relative"
-      style={{ height: reduce ? '100svh' : '280vh', background: '#fcfbf8' }}
+      style={{ height: reduce ? '100svh' : '280vh', background: '#fbf1f1' }}
     >
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         <KnowledgeScene />
@@ -86,7 +86,7 @@ export default function LivingHero() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(120% 90% at 50% 42%, transparent 55%, rgba(43,26,18,0.05) 100%)',
+              'radial-gradient(120% 90% at 50% 42%, transparent 55%, rgba(120,60,75,0.07) 100%)',
           }}
         />
 
@@ -96,7 +96,7 @@ export default function LivingHero() {
           className="hero-veil pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(75% 60% at 50% 50%, rgba(252,251,248,0.97) 0%, rgba(252,251,248,0.78) 40%, rgba(252,251,248,0.2) 70%, transparent 85%)',
+              'radial-gradient(75% 60% at 50% 50%, rgba(251,241,241,0.97) 0%, rgba(251,241,241,0.82) 40%, rgba(251,241,241,0.25) 70%, transparent 85%)',
           }}
         />
 
@@ -176,7 +176,10 @@ export default function LivingHero() {
           </p>
           <h1
             className="mt-5 text-[clamp(2.6rem,8vw,5.5rem)] leading-[0.98] tracking-tight text-ink"
-            style={{ fontFamily: 'var(--font-display)' }}
+            style={{
+              fontFamily: 'var(--font-display)',
+              textShadow: '0 1px 1px rgba(255,255,255,0.5), 0 6px 24px rgba(120,60,75,0.14)',
+            }}
           >
             {resume.name}
           </h1>

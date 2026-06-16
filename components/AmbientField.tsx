@@ -15,11 +15,12 @@ interface TierDef {
 }
 
 const TIERS: TierDef[] = [
-  { nFine: 54, nCoarse: 30, rMin: 0.7, rMax: 2.0, spdMul: 1.5, baseAlpha: 0.14, flowStr: 0.032 },
-  { nFine: 28, nCoarse: 15, rMin: 2.2, rMax: 3.9, spdMul: 0.9, baseAlpha: 0.21, flowStr: 0.022 },
-  { nFine: 12, nCoarse:  6, rMin: 4.2, rMax: 6.6, spdMul: 0.4, baseAlpha: 0.28, flowStr: 0.016 },
+  { nFine: 34, nCoarse: 20, rMin: 0.7, rMax: 2.0, spdMul: 1.5, baseAlpha: 0.16, flowStr: 0.032 },
+  { nFine: 18, nCoarse: 11, rMin: 2.2, rMax: 3.9, spdMul: 0.9, baseAlpha: 0.23, flowStr: 0.022 },
+  { nFine:  9, nCoarse:  5, rMin: 4.2, rMax: 6.6, spdMul: 0.4, baseAlpha: 0.30, flowStr: 0.016 },
 ];
-// Total: 94 desktop · 51 mobile
+// Total: 61 desktop · 36 mobile — trimmed for smooth scroll (the O(n²) link pass
+// runs every frame behind the whole page).
 
 // ─── physics ─────────────────────────────────────────────────────────────────
 const BASE_SPD   = 1.20;   // px/frame at 60fps — 2.2× prior; drives visible ambient drift
@@ -29,14 +30,14 @@ const CURSOR_F   = 0.022;  // perturbation force — noticeable but not magnetic
 const SPRING_K   = 0.0006; // return-to-origin spring — 4× softer; flow field dominates
 
 // ─── visuals ─────────────────────────────────────────────────────────────────
-const CONNECT_D  = 212;    // standard connection threshold (px)
-const CURSOR_CD  = 220;    // extended connection range for active nodes
+const CONNECT_D  = 178;    // standard connection threshold (px) — trimmed for fewer link draws
+const CURSOR_CD  = 188;    // extended connection range for active nodes
 const ACTIVE_THR = 0.18;   // minimum active level to join the cursor web
 const LINE_A     = 0.11;   // standard line max alpha
 const LINE_A_ACT = 0.13;   // cursor-zone extended line max alpha (subtler)
 const ACT_BOOST  = 1.5;    // opacity multiplier at full activation (was 2.8)
 
-const INK = '#2b1a12';    // site's warm ink colour
+const INK = '#3a2630';    // warm-sand light — glows softly on the espresso ground
 
 // ─── particle ────────────────────────────────────────────────────────────────
 interface Pt {
@@ -102,7 +103,7 @@ export default function AmbientField() {
 
     // ── canvas sizing ──────────────────────────────────────────────────────
     const applySize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       W = window.innerWidth;
       H = window.innerHeight;
       canvas.width  = Math.round(W * dpr);

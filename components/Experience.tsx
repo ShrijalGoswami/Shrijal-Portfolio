@@ -112,9 +112,9 @@ export default function Experience() {
                                 >
                                   <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
                                     {!reduce && (
-                                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper/80" />
+                                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink/80" />
                                     )}
-                                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink" />
                                   </span>
                                   Live demo
                                 </a>
@@ -136,7 +136,7 @@ export default function Experience() {
                               {job.keyProject.tags.map((t) => (
                                 <span
                                   key={t}
-                                  className="rounded-full border border-ink/15 bg-paper/60 px-2.5 py-1 text-[11px] font-medium text-ink/70"
+                                  className="rounded-full border border-ink/15 bg-ink/[0.06] px-2.5 py-1 text-[11px] font-medium text-ink/70"
                                 >
                                   {t}
                                 </span>

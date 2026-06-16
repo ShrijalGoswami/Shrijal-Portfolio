@@ -200,7 +200,7 @@ export default function Terminal() {
   return (
     <div
       ref={rootRef}
-      className="overflow-hidden rounded-xl bg-ink text-paper shadow-[0_28px_64px_-24px_rgba(43,26,18,0.5)]"
+      className="overflow-hidden rounded-xl border border-paper/10 bg-[#1e1419] text-paper shadow-[0_28px_64px_-24px_rgba(0,0,0,0.7)]"
     >
       <div className="flex items-center justify-between border-b border-paper/10 px-4 py-2.5">
         <p className="text-[12px] text-paper/60" style={{ fontFamily: 'var(--font-mono)' }}>
@@ -209,7 +209,7 @@ export default function Terminal() {
         <div className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-clay/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-ochre/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-sand/70" />
+          <span className="h-2.5 w-2.5 rounded-full bg-paper/40" />
         </div>
       </div>
 
@@ -256,7 +256,7 @@ export default function Terminal() {
           <p className="mt-3 flex items-center">
             <span className="text-ochre">{PROMPT}</span>
             <span
-              className="term-cursor ml-2 inline-block h-[1.1em] w-[0.55em] translate-y-[2px] bg-sand"
+              className="term-cursor ml-2 inline-block h-[1.1em] w-[0.55em] translate-y-[2px] bg-paper"
               aria-hidden="true"
             />
           </p>
@@ -271,7 +271,7 @@ export default function Terminal() {
             type="button"
             onClick={() => runCommand(chip.cmd)}
             disabled={busy}
-            className="rounded-md border border-paper/15 bg-paper/[0.04] px-3 py-1.5 text-[12.5px] text-paper/85 transition-colors hover:border-rust/60 hover:bg-rust/15 hover:text-paper focus-visible:border-rust disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-md border border-paper/15 bg-paper/[0.06] px-3 py-1.5 text-[12.5px] text-paper/85 transition-colors hover:border-rust/60 hover:bg-rust/15 hover:text-paper focus-visible:border-rust disabled:cursor-not-allowed disabled:opacity-40"
             style={{ fontFamily: 'var(--font-mono)' }}
           >
             {chip.label}

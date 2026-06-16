@@ -72,8 +72,8 @@ export default function NameIntro() {
       {show && (
         <motion.div
           className="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-          initial={{ backgroundColor: 'rgba(252,251,248,1)' }}
-          animate={{ backgroundColor: collapse ? 'rgba(252,251,248,0)' : 'rgba(252,251,248,1)' }}
+          initial={{ backgroundColor: 'rgba(251,241,241,1)' }}
+          animate={{ backgroundColor: collapse ? 'rgba(251,241,241,0)' : 'rgba(251,241,241,1)' }}
           exit={{ opacity: 0 }}
           transition={{ duration: collapse ? 1 : 0, ease: EASE_OUT }}
         >
@@ -92,7 +92,7 @@ export default function NameIntro() {
                   y1="50"
                   x2={s.x}
                   y2={s.y}
-                  stroke="#c2410c"
+                  stroke="#cf5d72"
                   strokeWidth="0.12"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={
@@ -106,7 +106,7 @@ export default function NameIntro() {
                   cx={s.x}
                   cy={s.y}
                   r="0.5"
-                  fill="#c2410c"
+                  fill="#cf5d72"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={collapse ? { scale: [0, 1, 0], opacity: [0, 0.7, 0] } : { scale: 0, opacity: 0 }}
                   transition={{ duration: 0.9, delay: 0.5 + i * 0.05, ease: EASE_OUT }}

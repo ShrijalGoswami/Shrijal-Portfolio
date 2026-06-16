@@ -42,7 +42,7 @@ export default function StackMarquee() {
     >
       {/* Quiet kicker pinned to the left, over the drift */}
       <span className="pointer-events-none absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 bg-paper/0 md:block">
-        <span className="t-label rounded-full bg-paper/80 px-3 py-1.5 text-rust shadow-[0_8px_20px_-12px_rgba(120,53,15,0.4)] ring-1 ring-ink/10 backdrop-blur-sm">
+        <span className="t-label rounded-full bg-surface-2 px-3 py-1.5 text-rust shadow-[0_8px_20px_-12px_rgba(0,0,0,0.5)] ring-1 ring-ink/10">
           Core stack
         </span>
       </span>

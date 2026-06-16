@@ -25,7 +25,7 @@ function FlowingPipeline() {
         <div
           aria-hidden="true"
           className="absolute -right-10 -top-14 h-44 w-44 rounded-full opacity-50 blur-3xl"
-          style={{ background: 'radial-gradient(closest-side, #d9770655, transparent)' }}
+          style={{ background: 'radial-gradient(closest-side, #e07a5f55, transparent)' }}
         />
 
         <div className="relative flex flex-wrap items-center gap-y-2 text-[13px] text-ink/80">

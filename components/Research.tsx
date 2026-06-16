@@ -49,7 +49,7 @@ export default function Research() {
                       {r.tags.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-ink/15 bg-paper/60 px-2.5 py-1 text-[11px] font-medium text-ink/65"
+                          className="rounded-full border border-ink/15 bg-ink/[0.06] px-2.5 py-1 text-[11px] font-medium text-ink/65"
                         >
                           {t}
                         </span>
