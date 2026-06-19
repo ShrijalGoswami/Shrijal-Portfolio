@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import resume from '@/data/resume.json';
 import { Reveal, CountUp } from './motion';
 
-const WASHES = ['#cf5d72', '#e07a5f', '#e0938a', '#cf5d72'];
+const WASHES = ['#2c3b8e', '#233072', '#6f7890', '#2c3b8e'];
 
 /**
  * Selected work — rebuilt from uniform stacked cards into large, editorial
@@ -43,11 +43,11 @@ export default function Projects() {
                   {String(i + 1).padStart(2, '0')}
                 </span>
 
-                {/* ember bar that grows on hover */}
+                {/* signal bar that grows on hover */}
                 <div
                   aria-hidden
                   className="absolute left-0 top-1 h-0 w-[3px] rounded-full bg-gradient-to-b from-rust to-ochre transition-all duration-500 group-hover:h-full"
-                  style={{ boxShadow: '0 0 16px rgba(207,93,114,0.6)' }}
+                  style={{ boxShadow: '0 0 16px rgba(44,59,142,0.55)' }}
                 />
 
                 <div className={`relative grid items-start gap-8 pl-6 md:grid-cols-12 md:gap-12 ${flip ? 'md:[direction:rtl]' : ''}`}>
@@ -72,7 +72,7 @@ export default function Projects() {
                             href={links.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full bg-rust px-5 py-2.5 font-semibold text-onaccent shadow-[0_12px_30px_-10px_rgba(207,93,114,0.7)] transition-colors hover:bg-ochre"
+                            className="inline-flex items-center gap-2 rounded-full bg-rust px-5 py-2.5 font-semibold text-onaccent shadow-[0_12px_30px_-10px_rgba(44,59,142,0.6)] transition-colors hover:bg-ochre"
                           >
                             <span className="relative flex h-1.5 w-1.5" aria-hidden>
                               {!reduce && (

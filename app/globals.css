@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 /*
-  ── WARM-DARK HYBRID ──────────────────────────────────────────────────────
-  A nocturnal "engineering field-notes" system. Espresso ground, warm-sand ink,
-  rust + ochre ember accents that glow against the dark. No blue, no purple.
+  ── BLUEPRINT, IN DAYLIGHT ─────────────────────────────────────────────────
+  A light "engineering field-notes" system. Warm-neutral oat ground, graphite
+  ink, and a single blueprint-indigo signal accent with slate as the quiet
+  tertiary. Indigo-on-paper IS the blueprint metaphor — precise, auditable,
+  not decorative.
 
-  Token semantics are preserved from the light build so component classes keep
-  meaning: `paper` = the ground, `ink` = primary text, `sand` = an elevated
-  surface fill. They were light; now they're dark — accents brightened to pop.
+  Token names are preserved so component classes keep meaning: `paper` = the
+  ground, `ink` = primary text, `sand` = an elevated surface fill. The accent
+  tokens kept their names (`rust`/`ochre`/`clay`) but now read indigo/slate.
 */
 @theme inline {
-  --color-paper: #fbf1f1;     /* blush-cream ground */
-  --color-surface: #fff8f7;   /* raised panel — near-white blush */
-  --color-surface-2: #f7e7e8; /* deeper panel / hover */
-  --color-ink: #3a2630;       /* deep plum text */
-  --color-sand: #f6e5e7;      /* soft blush fill */
-  --color-line: #ecd3d6;      /* hairline / divider */
-  --color-rust: #cf5d72;      /* rose — primary accent */
-  --color-ochre: #e07a5f;     /* coral — secondary accent */
-  --color-clay: #e0938a;      /* soft peach-rose */
-  --color-onaccent: #fff6f6;  /* near-white text that sits ON accents */
+  --color-paper: #eff0eb;     /* warm-neutral oat ground */
+  --color-surface: #f8f9f4;   /* raised panel — near-white */
+  --color-surface-2: #e4e6de; /* deeper panel / hover */
+  --color-ink: #20262b;       /* warm graphite text */
+  --color-sand: #e9ebe3;      /* soft neutral fill */
+  --color-line: #d6d9cf;      /* hairline / divider */
+  --color-rust: #2c3b8e;      /* blueprint indigo — primary accent */
+  --color-ochre: #233072;     /* deeper indigo — hover / secondary */
+  --color-clay: #6f7890;      /* slate — soft tertiary */
+  --color-onaccent: #f5f7ff;  /* near-white text that sits ON accents */
 
   --font-display: var(--font-fraunces);
   --font-body: var(--font-hanken);
@@ -27,7 +29,7 @@
 }
 
 html {
-  background: #fbf1f1;
+  background: #eff0eb;
 }
 
 body {
@@ -37,7 +39,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ambient ember warmth — fixed radial washes so the dark is never flat black.
+/* Ambient depth — fixed radial washes so the oat ground is never flat.
+   Faint indigo + slate, like light pooling on a drafting table.
    Sits behind everything (the canvas field draws over it at z -1). */
 body::before {
   content: '';
@@ -46,27 +49,27 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(80% 55% at 18% 8%, rgba(207, 93, 114, 0.10) 0%, transparent 55%),
-    radial-gradient(70% 50% at 88% 22%, rgba(224, 122, 95, 0.08) 0%, transparent 55%),
-    radial-gradient(90% 70% at 50% 110%, rgba(207, 93, 114, 0.07) 0%, transparent 60%);
+    radial-gradient(80% 55% at 18% 8%, rgba(44, 59, 142, 0.06) 0%, transparent 55%),
+    radial-gradient(70% 50% at 88% 22%, rgba(111, 120, 144, 0.06) 0%, transparent 55%),
+    radial-gradient(90% 70% at 50% 110%, rgba(44, 59, 142, 0.05) 0%, transparent 60%);
 }
 
 /* Film-grain over the ground — texture, not noise-for-noise's-sake.
-   Screen blend on dark so the grain reads as faint warm light, not dirt. */
+   Multiply blend on the light oat so the grain reads as faint paper tooth. */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.14;
+  opacity: 0.09;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: rgba(207, 93, 114, 0.22);
-  color: #3a2630;
+  background: rgba(44, 59, 142, 0.18);
+  color: #20262b;
 }
 
 :where(a, button, input, textarea, [tabindex]):focus-visible {
@@ -115,8 +118,8 @@ body::after {
   letter-spacing: -0.01em;
 }
 
-/* On the light blush theme a glow reads as a smudge — keep the classes as no-ops
-   so markup stays unchanged, with only the faintest lift. */
+/* On a light theme a glow reads as a smudge — keep the classes as no-ops so
+   markup stays unchanged, with only the faintest lift. */
 .glow-rust,
 .glow-ochre {
   text-shadow: none;
@@ -126,13 +129,13 @@ body::after {
 .glass {
   background: linear-gradient(
     160deg,
-    rgba(255, 251, 251, 0.88) 0%,
-    rgba(251, 238, 240, 0.93) 100%
+    rgba(248, 249, 244, 0.90) 0%,
+    rgba(236, 238, 230, 0.94) 100%
   );
-  border: 1px solid rgba(58, 38, 48, 0.08);
+  border: 1px solid rgba(32, 38, 43, 0.08);
   box-shadow:
-    0 26px 55px -30px rgba(120, 45, 65, 0.22),
-    0 1px 0 rgba(255, 255, 255, 0.65) inset;
+    0 26px 55px -30px rgba(30, 40, 80, 0.20),
+    0 1px 0 rgba(255, 255, 255, 0.70) inset;
 }
 
 /* Hairline border helper used by cards/timeline */
@@ -162,29 +165,30 @@ body::after {
   transform: scaleX(1);
 }
 
-/* ── Falling blossom petals (BlossomPetals) ──────────────────────────────
-   Two nested animations per petal: the outer falls top→bottom (linear, the
-   whole viewport height), the inner sways side-to-side and rotates (ease,
-   alternating) so each petal flutters like it's caught in a spring breeze.
-   GPU-only transforms — cheap even with a couple dozen petals. */
-.petal-fall {
+/* ── Drifting sample points (DriftMotes) ─────────────────────────────────
+   Replaces the blossom petals. Sparse scatter-plot marks (rings, plus-marks,
+   dots, diamonds) settle slowly down the viewport — a point cloud quietly
+   coming to rest. Two nested transforms per mote: the outer falls top→bottom
+   (linear, very slow), the inner drifts a few px sideways and rotates a hair
+   (ease, alternating). GPU-only transforms — cheap even with ~20 marks. */
+.mote-fall {
   position: absolute;
   top: 0;
   will-change: transform;
-  animation: petal-fall linear infinite;
+  animation: mote-fall linear infinite;
 }
-.petal-sway {
+.mote-drift {
   display: block;
   will-change: transform;
-  animation: petal-sway ease-in-out infinite alternate;
+  animation: mote-drift ease-in-out infinite alternate;
 }
-@keyframes petal-fall {
-  from { transform: translate3d(0, -14vh, 0); }
-  to { transform: translate3d(0, 114vh, 0); }
+@keyframes mote-fall {
+  from { transform: translate3d(0, -10vh, 0); }
+  to { transform: translate3d(0, 110vh, 0); }
 }
-@keyframes petal-sway {
-  from { transform: translateX(-13px) rotate(-38deg); }
-  to { transform: translateX(13px) rotate(44deg); }
+@keyframes mote-drift {
+  from { transform: translateX(-7px) rotate(-12deg); }
+  to { transform: translateX(7px) rotate(14deg); }
 }
 
 /* Scroll lock while the opening name sequence plays */

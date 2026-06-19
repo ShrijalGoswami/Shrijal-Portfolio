@@ -57,7 +57,7 @@ export default function About() {
             <div
               aria-hidden
               className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-50 blur-3xl"
-              style={{ background: 'radial-gradient(closest-side, rgba(207,93,114,0.30), transparent)' }}
+              style={{ background: 'radial-gradient(closest-side, rgba(44,59,142,0.22), transparent)' }}
             />
             <p className="t-label relative text-ink/45">The pattern</p>
             <p className="relative mt-4 text-[17px] leading-relaxed text-ink/85">

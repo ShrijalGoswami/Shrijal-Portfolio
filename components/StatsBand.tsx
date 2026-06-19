@@ -23,11 +23,11 @@ export default function StatsBand() {
             key={s.label}
             className="group relative flex flex-col justify-between gap-6 bg-paper px-5 py-7 transition-colors hover:bg-surface md:px-7 md:py-9"
           >
-            {/* hover ember bloom */}
+            {/* hover signal bloom */}
             <div
               aria-hidden
               className="pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-              style={{ background: 'radial-gradient(closest-side, rgba(207,93,114,0.35), transparent)' }}
+              style={{ background: 'radial-gradient(closest-side, rgba(44,59,142,0.28), transparent)' }}
             />
             <CountUp
               value={s.value}

@@ -37,7 +37,7 @@ const LINE_A     = 0.11;   // standard line max alpha
 const LINE_A_ACT = 0.13;   // cursor-zone extended line max alpha (subtler)
 const ACT_BOOST  = 1.5;    // opacity multiplier at full activation (was 2.8)
 
-const INK = '#3a2630';    // warm-sand light — glows softly on the espresso ground
+const INK = '#20262b';    // graphite — the node web reads as faint drafting ink on the oat ground
 
 // ─── particle ────────────────────────────────────────────────────────────────
 interface Pt {

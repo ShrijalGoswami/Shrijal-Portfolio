@@ -6,8 +6,8 @@ import * as THREE from 'three';
 import { NODES, EDGES, type GraphNode } from './network';
 import { hero, smoothstep } from './store';
 
-const INK = new THREE.Color('#3a2630'); // warm sand — nodes/lines glow on the dark ground
-const RUST = new THREE.Color('#cf5d72'); // brightened ember-rust to match the dark theme
+const INK = new THREE.Color('#20262b'); // graphite — nodes/lines read as drafting ink
+const RUST = new THREE.Color('#2c3b8e'); // blueprint indigo — the signal accent
 const SEG = 28; // samples per connection line
 
 const RADIUS: Record<GraphNode['kind'], number> = { core: 0.17, head: 0.11, leaf: 0.065 };

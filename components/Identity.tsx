@@ -55,13 +55,13 @@ export default function Identity() {
                 />
               </motion.div>
 
-              {/* Warm wash so the photo reads as part of the palette, not pasted on */}
+              {/* Cool wash so the photo reads as part of the palette, not pasted on */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 mix-blend-multiply"
                 style={{
                   background:
-                    'linear-gradient(150deg, rgba(217,119,6,0.10) 0%, transparent 38%, rgba(194,65,12,0.16) 100%)',
+                    'linear-gradient(150deg, rgba(44,59,142,0.10) 0%, transparent 38%, rgba(111,120,144,0.16) 100%)',
                 }}
               />
               {/* Bottom scrim for the caption */}

@@ -44,9 +44,9 @@ function Rise({ children, delay, className }: { children: React.ReactNode; delay
 export default function Hero() {
   return (
     <section id="top" className="relative mx-auto max-w-6xl overflow-x-clip px-5 pb-20 pt-14 md:px-8 md:pb-28 md:pt-24">
-      {/* Ambient warm washes — drifting slowly, sitting behind the frosted header too */}
-      <DriftWash className="-top-28 right-[-60px] h-[440px] w-[440px]" color="#e8927c" duration={24} />
-      <DriftWash className="top-64 left-[-120px] h-[360px] w-[360px]" color="#d97706" duration={30} delay={3} />
+      {/* Ambient blueprint washes — drifting slowly, sitting behind the frosted header too */}
+      <DriftWash className="-top-28 right-[-60px] h-[440px] w-[440px]" color="#2c3b8e" duration={24} />
+      <DriftWash className="top-64 left-[-120px] h-[360px] w-[360px]" color="#6f7890" duration={30} delay={3} />
 
       <div className="relative grid gap-12 md:grid-cols-12">
         <div className="md:col-span-8">

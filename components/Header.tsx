@@ -54,8 +54,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
         scrolled
-          ? 'border-ink/10 bg-[#fbf1f1]/95 shadow-[0_10px_30px_-22px_rgba(0,0,0,0.6)]'
-          : 'border-transparent bg-[#fbf1f1]/80'
+          ? 'border-ink/10 bg-[#eff0eb]/95 shadow-[0_10px_30px_-22px_rgba(0,0,0,0.6)]'
+          : 'border-transparent bg-[#eff0eb]/80'
       }`}
     >
       <div
