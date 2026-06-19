@@ -388,12 +388,35 @@ function Labels({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
   );
 }
 
+// Probe for a usable WebGL context. Some environments (sandboxed browsers,
+// disabled hardware acceleration, headless GPUs) expose the API but fail to
+// create a context — letting THREE.WebGLRenderer throw and crash the hero.
+function detectWebGL(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const canvas = document.createElement('canvas');
+    const gl =
+      canvas.getContext('webgl2') ||
+      canvas.getContext('webgl') ||
+      canvas.getContext('experimental-webgl');
+    return !!gl;
+  } catch {
+    return false;
+  }
+}
+
 export default function KnowledgeScene() {
   const labelEls = useRef<HTMLDivElement[]>([]);
   const rootRef = useRef<HTMLDivElement>(null);
   // Pause the entire render loop (raycast + draw) once the hero scrolls offscreen
   // — otherwise it keeps rendering full-tilt behind every section below it.
   const [active, setActive] = useState(true);
+  // null = not yet probed (SSR / first paint); false = unsupported → static fallback.
+  const [webgl, setWebgl] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setWebgl(detectWebGL());
+  }, []);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -421,17 +444,35 @@ export default function KnowledgeScene() {
     return () => window.removeEventListener('pointermove', onMove);
   }, []);
 
+  // WebGL unavailable: skip the 3D engine entirely and render a calm static
+  // backdrop so the hero copy (revealed by the scroll choreography) still reads.
+  if (webgl === false) {
+    return (
+      <div
+        ref={rootRef}
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(120% 90% at 50% 38%, rgba(44,59,142,0.10) 0%, transparent 55%), #eff0eb',
+        }}
+      />
+    );
+  }
+
   return (
     <div ref={rootRef} className="absolute inset-0">
-      <Canvas
-        frameloop={active ? 'always' : 'never'}
-        camera={{ position: [0, 0, 11], fov: 40 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-        style={{ background: 'transparent' }}
-      >
-        <Scene labelEls={labelEls} />
-      </Canvas>
+      {webgl && (
+        <Canvas
+          frameloop={active ? 'always' : 'never'}
+          camera={{ position: [0, 0, 11], fov: 40 }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+          style={{ background: 'transparent' }}
+        >
+          <Scene labelEls={labelEls} />
+        </Canvas>
+      )}
       <Labels labelEls={labelEls} />
     </div>
   );
