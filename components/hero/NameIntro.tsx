@@ -8,7 +8,7 @@ import { getLenis } from '../lenis-bridge';
 /**
  * The opening moment: the name is the first thing on screen. It rises out of a
  * clip mask, the tracking settles, the blur clears — then the whole word collapses
- * toward the center of the viewport (where the 3D core node lives) while thin rust
+ * toward the center of the viewport (where the 3D core node lives) while thin indigo
  * connectors radiate outward, seeding the Living Knowledge System behind it.
  *
  * No loading-screen feel, no typewriter — pure typographic motion that hands off
@@ -72,8 +72,8 @@ export default function NameIntro() {
       {show && (
         <motion.div
           className="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-          initial={{ backgroundColor: 'rgba(251,241,241,1)' }}
-          animate={{ backgroundColor: collapse ? 'rgba(251,241,241,0)' : 'rgba(251,241,241,1)' }}
+          initial={{ backgroundColor: 'rgba(239,240,235,1)' }}
+          animate={{ backgroundColor: collapse ? 'rgba(239,240,235,0)' : 'rgba(239,240,235,1)' }}
           exit={{ opacity: 0 }}
           transition={{ duration: collapse ? 1 : 0, ease: EASE_OUT }}
         >
@@ -92,7 +92,7 @@ export default function NameIntro() {
                   y1="50"
                   x2={s.x}
                   y2={s.y}
-                  stroke="#cf5d72"
+                  stroke="#2c3b8e"
                   strokeWidth="0.12"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={
@@ -106,7 +106,7 @@ export default function NameIntro() {
                   cx={s.x}
                   cy={s.y}
                   r="0.5"
-                  fill="#cf5d72"
+                  fill="#2c3b8e"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={collapse ? { scale: [0, 1, 0], opacity: [0, 0.7, 0] } : { scale: 0, opacity: 0 }}
                   transition={{ duration: 0.9, delay: 0.5 + i * 0.05, ease: EASE_OUT }}

@@ -339,7 +339,7 @@ export default function Contact() {
                               <button
                                 type="submit"
                                 disabled={sending}
-                                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-rust px-6 py-3.5 text-[15px] font-semibold text-paper shadow-[0_16px_36px_-14px_rgba(194,65,12,0.55)] transition-colors hover:bg-ochre disabled:cursor-not-allowed disabled:opacity-70"
+                                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-rust px-6 py-3.5 text-[15px] font-semibold text-onaccent shadow-[0_16px_36px_-14px_rgba(44,59,142,0.5)] transition-colors hover:bg-ochre disabled:cursor-not-allowed disabled:opacity-70"
                               >
                                 {sending ? 'Sending…' : 'Send message'}
                                 {!sending && <span aria-hidden>→</span>}

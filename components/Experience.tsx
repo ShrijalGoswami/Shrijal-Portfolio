@@ -50,11 +50,11 @@ export default function Experience() {
                     transition={{ type: 'spring', stiffness: 320, damping: 24 }}
                     className="glass group relative overflow-hidden rounded-2xl p-6 md:p-8"
                   >
-                    {/* Warm wash behind the frosted surface; shifts on hover */}
+                    {/* Indigo wash behind the frosted surface; shifts on hover */}
                     <div
                       aria-hidden="true"
                       className="absolute -right-16 -top-16 h-52 w-52 rounded-full opacity-60 blur-3xl transition-all duration-700 group-hover:-translate-x-4 group-hover:translate-y-3 group-hover:opacity-90"
-                      style={{ background: 'radial-gradient(closest-side, #e8927c66, transparent)' }}
+                      style={{ background: 'radial-gradient(closest-side, #2c3b8e40, transparent)' }}
                     />
 
                     <div className="relative grid gap-2 sm:grid-cols-[140px_1fr] sm:gap-8">

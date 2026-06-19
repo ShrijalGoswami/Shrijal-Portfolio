@@ -126,10 +126,10 @@ export function Magnetic({
   );
 }
 
-/** Slowly drifting warm wash blob — ambient, looping, GPU-only transforms. */
+/** Slowly drifting indigo wash blob — ambient, looping, GPU-only transforms. */
 export function DriftWash({
   className,
-  color = '#e8927c',
+  color = '#2c3b8e',
   duration = 22,
   delay = 0,
 }: {

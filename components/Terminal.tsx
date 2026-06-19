@@ -200,7 +200,7 @@ export default function Terminal() {
   return (
     <div
       ref={rootRef}
-      className="overflow-hidden rounded-xl border border-paper/10 bg-[#1e1419] text-paper shadow-[0_28px_64px_-24px_rgba(0,0,0,0.7)]"
+      className="overflow-hidden rounded-xl border border-paper/10 bg-[#14181e] text-paper shadow-[0_28px_64px_-24px_rgba(0,0,0,0.7)]"
     >
       <div className="flex items-center justify-between border-b border-paper/10 px-4 py-2.5">
         <p className="text-[12px] text-paper/60" style={{ fontFamily: 'var(--font-mono)' }}>
