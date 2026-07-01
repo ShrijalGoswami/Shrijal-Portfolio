@@ -33,9 +33,18 @@
         "liveUrl": "",
         "repoUrl": ""
       },
+      "keyProject2": {
+        "name": "AI Tutor",
+        "alias": "child-safe multi-channel tutor",
+        "tagline": "A production AI tutor answering Maths, Science & English doubts for Years 3–8 + GATE across web, mobile, and WhatsApp — every message screened by a 3-layer child-safety system, with year-level-adaptive responses.",
+        "tags": ["AI", "Child Safety", "Prompt Engineering", "EdTech"],
+        "liveUrl": "",
+        "repoUrl": ""
+      },
       "points": [
         "Own AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.",
         "Replaced the manual AI booklet-generation workflow with a structured generation pipeline (the Booklet Engine), cutting token usage per booklet ~10× (≈40% → ≈4% of the prior budget).",
+        "Designed and built a child-safe AI tutor serving Maths, Science, and English doubts across web, mobile, and WhatsApp — a 3-layer safety system, year-level-adaptive responses, and honest-uncertainty prompting for a primary-to-lower-secondary student audience.",
         "Standardized prompt and pipeline design so output stays consistent as volume grows — measurably improving scalability, reliability, and operational efficiency of content production."
       ]
     },
@@ -109,8 +118,8 @@
   "skills": {
     "Languages": ["Python", "SQL", "C++", "TypeScript"],
     "ML": ["Scikit-learn", "XGBoost", "stacked ensembles", "cross-validation", "explainability"],
-    "Retrieval / LLM": ["RAG pipelines", "BM25 + dense hybrid retrieval", "LangChain", "ChromaDB", "Groq", "Vertex AI"],
-    "Backend / Data": ["FastAPI", "REST API design", "data pipelines", "Pandas", "NumPy"]
+    "Retrieval / LLM": ["RAG pipelines", "BM25 + dense hybrid retrieval", "LangChain", "ChromaDB", "Groq", "Vertex AI", "Anthropic Claude API", "content moderation"],
+    "Backend / Data": ["FastAPI", "REST API design", "data pipelines", "Pandas", "NumPy", "WhatsApp Cloud API"]
   },
   "projects": [
     {
@@ -127,6 +136,17 @@
         "code": "https://github.com/ShrijalGoswami/Resume-Parser",
         "note": "Free-tier hosting — first load can take ~30s to spin up."
       }
+    },
+    {
+      "name": "AI Tutor",
+      "what": "Child-safe AI tutor for Maths, Science & English — in production at AKademy38",
+      "detail": "A production tutor that answers student doubts across Maths, Science, and English for Years 3, 5, 7, 8 and the GATE cohort, aligned to the SCSA Western Australian curriculum — from a single backend serving web, mobile, and WhatsApp. No RAG: the model answers from its own knowledge, steered by year-level-aware prompt engineering, and every message passes a three-layer safety screen — input moderation → prompt-level rules → output moderation — before it reaches a child. Responses adapt vocabulary, depth, and tone to each year level (Year 3 ~8yo through Year 8 ~14yo, with extension challenges for GATE), admit uncertainty with full worked steps instead of fabricating, and route harm signals to a defined human safeguarding pathway.",
+      "evidence": [
+        { "value": "3-layer", "label": "defence-in-depth child safety — input moderation → prompt rules → output moderation on every message" },
+        { "value": "5 year levels", "label": "age-adaptive responses for Years 3, 5, 7, 8 and the GATE (Gifted & Talented) cohort" }
+      ],
+      "stack": ["Python", "Anthropic Claude API", "FastAPI", "content moderation", "WhatsApp Cloud API", "PostgreSQL", "Redis"],
+      "links": { "internal": "Internal AKademy38 product" }
     },
     {
       "name": "Booklet Engine",

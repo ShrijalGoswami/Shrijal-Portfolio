@@ -29,11 +29,14 @@ const SKILL_INFO: Record<string, string> = {
   ChromaDB: 'Vector store for dense embeddings and similarity search.',
   Groq: 'Low-latency LLM inference for grounded generation.',
   'Vertex AI': 'Google Cloud platform for training and serving models.',
+  'Anthropic Claude API': 'Claude models behind production systems — the LLM powering the AI Tutor.',
+  'content moderation': 'Input/output screening pipelines — the safety layer that keeps LLM systems child-safe.',
   FastAPI: 'Async Python APIs that serve models behind real endpoints.',
   'REST API design': 'Clean, versioned contracts for production services.',
   'data pipelines': 'Ingestion → cleaning → transformation, built to scale.',
   Pandas: 'Tabular data wrangling and feature engineering.',
   NumPy: 'Vectorized numerical computing under the hood.',
+  'WhatsApp Cloud API': 'Serving an LLM tutor over WhatsApp — equations rendered as images where LaTeX can’t.',
 };
 
 export default function About() {

@@ -11,7 +11,7 @@ const STATS: { value: string; label: string; sub: string }[] = [
   { value: '~10×', label: 'lower token cost', sub: 'Booklet Engine pipeline · ≈40% → ≈4%' },
   { value: '89.13%', label: 'CV accuracy', sub: 'Heart-disease stacking ensemble' },
   { value: '~45 ms', label: 'retrieval latency', sub: 'Hybrid BM25 + dense, at scale' },
-  { value: '2', label: 'systems in production', sub: 'Resume Intelligence · Booklet Engine' },
+  { value: '3', label: 'systems in production', sub: 'Resume Intelligence · Booklet Engine · AI Tutor' },
 ];
 
 export default function StatsBand() {

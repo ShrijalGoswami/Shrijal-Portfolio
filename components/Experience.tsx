@@ -96,16 +96,19 @@ export default function Experience() {
                           ))}
                         </ul>
 
-                        {/* Key delivered product — recruiters should tie this role to it instantly. */}
-                        {'keyProject' in job && job.keyProject && (
-                          <div className="mt-5 max-w-xl rounded-xl border border-rust/25 bg-rust/[0.06] p-4">
+                        {/* Key delivered products — recruiters should tie this role to them instantly. */}
+                        {[
+                          ...('keyProject' in job && job.keyProject ? [job.keyProject] : []),
+                          ...('keyProject2' in job && job.keyProject2 ? [job.keyProject2] : []),
+                        ].map((kp) => (
+                          <div key={kp.name} className="mt-5 max-w-xl rounded-xl border border-rust/25 bg-rust/[0.06] p-4">
                             <div className="flex flex-wrap items-center justify-between gap-2">
                               <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-rust">
                                 <span aria-hidden="true">★</span> Key project
                               </span>
-                              {job.keyProject.liveUrl ? (
+                              {kp.liveUrl ? (
                                 <a
-                                  href={job.keyProject.liveUrl}
+                                  href={kp.liveUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-1.5 rounded-full bg-rust px-2.5 py-1 text-[11px] font-semibold text-paper transition-colors hover:bg-ochre"
@@ -127,13 +130,13 @@ export default function Experience() {
                             </div>
 
                             <h4 className="mt-2 text-lg leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                              {job.keyProject.name}{' '}
-                              <span className="text-[14px] text-ink/55">({job.keyProject.alias})</span>
+                              {kp.name}{' '}
+                              <span className="text-[14px] text-ink/55">({kp.alias})</span>
                             </h4>
-                            <p className="mt-1 text-[13px] leading-relaxed text-ink/70">{job.keyProject.tagline}</p>
+                            <p className="mt-1 text-[13px] leading-relaxed text-ink/70">{kp.tagline}</p>
 
                             <div className="mt-3 flex flex-wrap gap-1.5">
-                              {job.keyProject.tags.map((t) => (
+                              {kp.tags.map((t) => (
                                 <span
                                   key={t}
                                   className="rounded-full border border-ink/15 bg-ink/[0.06] px-2.5 py-1 text-[11px] font-medium text-ink/70"
@@ -143,11 +146,11 @@ export default function Experience() {
                               ))}
                             </div>
 
-                            {(job.keyProject.liveUrl || job.keyProject.repoUrl) && (
+                            {(kp.liveUrl || kp.repoUrl) && (
                               <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px]">
-                                {job.keyProject.liveUrl && (
+                                {kp.liveUrl && (
                                   <a
-                                    href={job.keyProject.liveUrl}
+                                    href={kp.liveUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="nav-underline font-semibold text-rust"
@@ -155,9 +158,9 @@ export default function Experience() {
                                     Live demo ↗
                                   </a>
                                 )}
-                                {job.keyProject.repoUrl && (
+                                {kp.repoUrl && (
                                   <a
-                                    href={job.keyProject.repoUrl}
+                                    href={kp.repoUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="nav-underline text-ink/65 hover:text-ink"
@@ -168,7 +171,7 @@ export default function Experience() {
                               </div>
                             )}
                           </div>
-                        )}
+                        ))}
                       </div>
                     </div>
                   </motion.article>

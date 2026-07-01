@@ -20,7 +20,7 @@ export default function Projects() {
       <Reveal>
         <p className="t-label text-rust glow-rust">03 — Selected work</p>
         <h2 className="t-h2 mt-4 max-w-2xl">
-          Four systems, <em className="text-rust">measured.</em>
+          Five systems, <em className="text-rust">measured.</em>
         </h2>
       </Reveal>
 
