@@ -39,6 +39,34 @@ const SKILL_INFO: Record<string, string> = {
   'WhatsApp Cloud API': 'Serving an LLM tutor over WhatsApp — equations rendered as images where LaTeX can’t.',
 };
 
+// Bare product domains that appear in a highlight become real links, so a
+// milestone like "live at hirevo.in" is one click from the proof. Text-only
+// otherwise — the list keeps its plain-string data shape for the terminal.
+const HIGHLIGHT_LINKS: Record<string, string> = {
+  'hirevo.in': 'https://hirevo.in',
+};
+
+function renderHighlight(text: string) {
+  const domains = Object.keys(HIGHLIGHT_LINKS).filter((d) => text.includes(d));
+  if (domains.length === 0) return text;
+  const parts = text.split(new RegExp(`(${domains.join('|')})`));
+  return parts.map((part, i) =>
+    HIGHLIGHT_LINKS[part] ? (
+      <a
+        key={i}
+        href={HIGHLIGHT_LINKS[part]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="nav-underline font-semibold text-rust"
+      >
+        {part}
+      </a>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+}
+
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
@@ -130,7 +158,7 @@ export default function About() {
               {resume.highlights.map((h) => (
                 <li key={h} className="flex gap-2.5 text-[14px] leading-snug text-ink/80">
                   <span aria-hidden className="mt-0.5 text-rust">★</span>
-                  {h}
+                  <span>{renderHighlight(h)}</span>
                 </li>
               ))}
             </ul>

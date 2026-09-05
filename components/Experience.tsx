@@ -14,8 +14,8 @@ export default function Experience() {
         <div className="md:col-span-3">
           <SectionLabel n="02" title="Experience" />
           <p className="mt-4 hidden max-w-[12rem] text-[13px] leading-relaxed text-ink/55 md:block">
-            From student projects to a hands-on internship to leading AI strategy — each step built
-            on the last.
+            From student projects to a hands-on internship, leading AI strategy, and launching a
+            SaaS product of my own — each step built on the last.
           </p>
         </div>
 
@@ -100,7 +100,16 @@ export default function Experience() {
                         {[
                           ...('keyProject' in job && job.keyProject ? [job.keyProject] : []),
                           ...('keyProject2' in job && job.keyProject2 ? [job.keyProject2] : []),
-                        ].map((kp) => (
+                        ].map((kp) => {
+                          // Optional fields — only some key projects carry them.
+                          const liveLabel: string =
+                            'liveLabel' in kp && typeof kp.liveLabel === 'string' && kp.liveLabel
+                              ? kp.liveLabel
+                              : 'Live demo';
+                          const milestones: string[] =
+                            'milestones' in kp && Array.isArray(kp.milestones) ? kp.milestones : [];
+
+                          return (
                           <div key={kp.name} className="mt-5 max-w-xl rounded-xl border border-rust/25 bg-rust/[0.06] p-4">
                             <div className="flex flex-wrap items-center justify-between gap-2">
                               <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-rust">
@@ -119,7 +128,7 @@ export default function Experience() {
                                     )}
                                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink" />
                                   </span>
-                                  Live demo
+                                  {liveLabel}
                                 </a>
                               ) : (
                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-rust/40 px-2.5 py-1 text-[11px] font-semibold text-rust">
@@ -146,6 +155,43 @@ export default function Experience() {
                               ))}
                             </div>
 
+                            {/* Launch trail — the concrete steps that turned a build into a
+                                live, discoverable product. Reads left→right on desktop and
+                                wraps into a compact list on mobile; the final step is the
+                                milestone reached. */}
+                            {milestones.length > 0 && (
+                              <ol
+                                aria-label="Launch milestones"
+                                className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1.5 border-t border-rust/15 pt-3"
+                              >
+                                {milestones.map((m, mi) => {
+                                  const last = mi === milestones.length - 1;
+                                  return (
+                                    <li key={m} className="inline-flex items-center gap-2">
+                                      {/* Leading connector: hidden when the trail stacks on mobile,
+                                          and it never dangles at a line end when the row wraps. */}
+                                      {mi > 0 && (
+                                        <span aria-hidden="true" className="hidden h-px w-3 bg-rust/30 sm:inline-block" />
+                                      )}
+                                      <span
+                                        className={`inline-flex items-center gap-1.5 text-[11.5px] leading-none ${
+                                          last ? 'font-semibold text-rust' : 'font-medium text-ink/60'
+                                        }`}
+                                      >
+                                        <span
+                                          aria-hidden="true"
+                                          className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                                            last ? 'bg-rust ring-2 ring-rust/25' : 'bg-rust/45'
+                                          }`}
+                                        />
+                                        {m}
+                                      </span>
+                                    </li>
+                                  );
+                                })}
+                              </ol>
+                            )}
+
                             {(kp.liveUrl || kp.repoUrl) && (
                               <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px]">
                                 {kp.liveUrl && (
@@ -155,7 +201,7 @@ export default function Experience() {
                                     rel="noopener noreferrer"
                                     className="nav-underline font-semibold text-rust"
                                   >
-                                    Live demo ↗
+                                    {liveLabel} ↗
                                   </a>
                                 )}
                                 {kp.repoUrl && (
@@ -171,7 +217,8 @@ export default function Experience() {
                               </div>
                             )}
                           </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   </motion.article>

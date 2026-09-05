@@ -77,7 +77,7 @@ function run(cmd: string): Omit<Line, 'id' | 'delay'>[] {
       ]);
 
     case 'hackathons':
-      return [out('hackathons & open source —'), ...resume.highlights.map((h) => out(`  • ${h}`))];
+      return [out('on the record — launches, hackathons & open source'), ...resume.highlights.map((h) => out(`  • ${h}`))];
 
     case 'education':
       return [out(`${resume.education.degree}`), out(`${resume.education.school}, ${resume.education.years}`)];

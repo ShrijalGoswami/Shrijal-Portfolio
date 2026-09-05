@@ -19,6 +19,29 @@
   },
   "experience": [
     {
+      "stage": "Product milestone",
+      "role": "Built & launched",
+      "org": "Hirevo",
+      "where": "Independent SaaS product · hirevo.in",
+      "when": "2026 – present",
+      "current": true,
+      "keyProject": {
+        "name": "AI Resume Screening",
+        "alias": "hirevo.in",
+        "tagline": "Shipped Hirevo's AI-powered Resume Screening workflow to production and got the page indexed by Google — marking the transition from product development to a live, discoverable SaaS product.",
+        "tags": ["AI", "SaaS", "Production launch", "Organic search"],
+        "liveUrl": "https://hirevo.in",
+        "liveLabel": "Live product",
+        "repoUrl": "",
+        "milestones": ["Shipped to production", "Added to marketing nav", "Submitted to Google", "Indexed · in Google Search"]
+      },
+      "points": [
+        "Built and launched Hirevo, an AI Resume Screening SaaS — a live, publicly accessible product at hirevo.in, not a demo.",
+        "Shipped the AI-powered Resume Screening workflow and its public page to production, and wired the page into the marketing navigation.",
+        "Submitted the page for Google indexing; it is now indexed and appears in Google Search — Hirevo’s first organic, discoverable entry point."
+      ]
+    },
+    {
       "stage": "Professional role",
       "role": "AI Strategist",
       "org": "AKademy38",
@@ -84,6 +107,7 @@
     }
   ],
   "highlights": [
+    "Built and launched Hirevo, a live AI-powered SaaS product for resume screening — now publicly available at hirevo.in and indexed by Google",
     "GSSoC '26 open-source contributor",
     "DataForge Hackathon finalist (IITR E-Summit '26)"
   ],
