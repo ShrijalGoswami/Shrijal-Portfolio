@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { NODES, EDGES, type GraphNode } from './network';
-import { hero, smoothstep } from './store';
+import { hero, markSceneReady, smoothstep } from './store';
 
 const INK = new THREE.Color('#20262b'); // graphite — nodes/lines read as drafting ink
 const RUST = new THREE.Color('#2c3b8e'); // blueprint indigo — the signal accent
@@ -115,6 +115,11 @@ function Scene({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
 
   const rayTargets = useMemo(() => nodes.map((o) => o.sphere), [nodes]);
 
+  // Tell the intro director the scene is mounted and can draw the build.
+  useEffect(() => {
+    markSceneReady();
+  }, []);
+
   // Build connection-line objects once.
   const lines = useMemo<LineObj[]>(() => {
     return EDGES.map((e) => {
@@ -167,7 +172,7 @@ function Scene({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
     hero.pointerX += (hero.rawX - hero.pointerX) * slow;
     hero.pointerY += (hero.rawY - hero.pointerY) * slow;
     const p = hero.progress;
-    const settle = smoothstep(0.74, 1, p); // network recedes as identity resolves
+    const settle = smoothstep(0.82, 1, p); // network recedes as identity resolves (after the hold)
 
     const g = groupRef.current;
     if (!g) return;
@@ -318,9 +323,9 @@ function Scene({ labelEls }: { labelEls: React.RefObject<HTMLDivElement[]> }) {
         // labels recede hard at the climax so they don't clutter behind the identity
         const kindFade =
           n.kind === 'core'
-            ? 1 - smoothstep(0.70, 0.82, p)
+            ? 1 - smoothstep(0.82, 0.90, p)
             : n.kind === 'head'
-              ? 1 - smoothstep(0.72, 0.84, p)
+              ? 1 - smoothstep(0.84, 0.92, p)
               : 1;
         const op = visible && show ? rev * kindFade : 0;
         el.style.transform = `translate3d(${x}px, ${y}px, 0)`;

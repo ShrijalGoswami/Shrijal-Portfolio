@@ -1,5 +1,5 @@
 // The "Living Knowledge System" graph — derived from the résumé, laid out in 3D.
-// Nodes reveal progressively as scroll progress (0..1) crosses their `reveal` threshold.
+// Nodes reveal progressively as the intro timeline's progress (0..1) crosses their `reveal` threshold.
 // Kept framework-agnostic (plain data); the scene turns positions into THREE vectors.
 
 export type NodeKind = 'core' | 'head' | 'leaf';
