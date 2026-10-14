@@ -67,8 +67,8 @@ export default function NameIntro() {
       {show && (
         <motion.div
           className="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-          initial={{ backgroundColor: 'rgba(239,240,235,1)' }}
-          animate={{ backgroundColor: collapse ? 'rgba(239,240,235,0)' : 'rgba(239,240,235,1)' }}
+          initial={{ backgroundColor: 'rgba(249,246,238,1)' }}
+          animate={{ backgroundColor: collapse ? 'rgba(249,246,238,0)' : 'rgba(249,246,238,1)' }}
           exit={{ opacity: 0 }}
           transition={{ duration: collapse ? 1 : 0, ease: EASE_OUT }}
         >

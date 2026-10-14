@@ -142,6 +142,7 @@
   "skills": {
     "Languages": ["Python", "SQL", "C++", "TypeScript"],
     "ML": ["Scikit-learn", "XGBoost", "stacked ensembles", "cross-validation", "explainability"],
+    "Computer Vision": ["PyTorch", "OpenCV", "CNNs", "transfer learning"],
     "Retrieval / LLM": ["RAG pipelines", "BM25 + dense hybrid retrieval", "LangChain", "ChromaDB", "Groq", "Vertex AI", "Anthropic Claude API", "content moderation"],
     "Backend / Data": ["FastAPI", "REST API design", "data pipelines", "Pandas", "NumPy", "WhatsApp Cloud API"]
   },
@@ -182,6 +183,17 @@
       ],
       "stack": ["Python", "LLM pipelines", "Prompt engineering", "Content automation"],
       "links": { "internal": "Internal AKademy38 product" }
+    },
+    {
+      "name": "Plant Disease Detection & Analysis",
+      "what": "Leaf-photo disease classifier with session analytics — computer vision",
+      "detail": "Takes a photo of a leaf and tells you whether it is healthy or which of 38 crop–condition classes it shows, across 14 crops. OpenCV preprocessing (validate → decode BGR→RGB → 224×224 area resize → ImageNet normalisation) feeds a MobileNetV2 fine-tuned from ImageNet weights on 54,305 PlantVillage images. The Streamlit app shows each preprocessing step, the top-3 classes with confidence, flags anything under 60%, and rolls every prediction in a session into a history table, class-distribution chart, and CSV/report export. I also hash-checked the dataset for train/test leakage: 21 exact duplicates turned up, and test accuracy stays at 99.25% with them removed.",
+      "evidence": [
+        { "value": "99.25%", "label": "test accuracy on 8,147 held-out images (stratified 70/15/15 split); macro F1 98.89%" },
+        { "value": "38 classes", "label": "healthy + disease conditions across 14 crops, from a ~2.2M-parameter MobileNetV2 that predicts in under a second on CPU" }
+      ],
+      "stack": ["Python", "PyTorch", "MobileNetV2", "OpenCV", "scikit-learn", "Streamlit", "pytest"],
+      "links": { "code": "https://github.com/ShrijalGoswami/Plant-Disease-Detection-and-Analysis-System" }
     },
     {
       "name": "Explainable RAG QA",

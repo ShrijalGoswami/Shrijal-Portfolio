@@ -12,12 +12,12 @@
   tokens kept their names (`rust`/`ochre`/`clay`) but now read indigo/slate.
 */
 @theme inline {
-  --color-paper: #eff0eb;     /* warm-neutral oat ground */
-  --color-surface: #f8f9f4;   /* raised panel — near-white */
-  --color-surface-2: #e4e6de; /* deeper panel / hover */
+  --color-paper: #f9f6ee;     /* soft ivory ground */
+  --color-surface: #fffdf8;   /* raised panel — warm near-white */
+  --color-surface-2: #efeadf; /* deeper panel / hover */
   --color-ink: #20262b;       /* warm graphite text */
-  --color-sand: #e9ebe3;      /* soft neutral fill */
-  --color-line: #d6d9cf;      /* hairline / divider */
+  --color-sand: #f3efe5;      /* soft ivory fill */
+  --color-line: #e3ddcf;      /* hairline / divider */
   --color-rust: #2c3b8e;      /* blueprint indigo — primary accent */
   --color-ochre: #233072;     /* deeper indigo — hover / secondary */
   --color-clay: #6f7890;      /* slate — soft tertiary */
@@ -29,7 +29,7 @@
 }
 
 html {
-  background: #eff0eb;
+  background: #f9f6ee;
 }
 
 body {
@@ -129,8 +129,8 @@ body::after {
 .glass {
   background: linear-gradient(
     160deg,
-    rgba(248, 249, 244, 0.90) 0%,
-    rgba(236, 238, 230, 0.94) 100%
+    rgba(255, 253, 248, 0.92) 0%,
+    rgba(243, 239, 229, 0.94) 100%
   );
   border: 1px solid rgba(32, 38, 43, 0.08);
   box-shadow:

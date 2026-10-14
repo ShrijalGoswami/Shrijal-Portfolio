@@ -459,7 +459,7 @@ export default function KnowledgeScene() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(120% 90% at 50% 38%, rgba(44,59,142,0.10) 0%, transparent 55%), #eff0eb',
+            'radial-gradient(120% 90% at 50% 38%, rgba(44,59,142,0.10) 0%, transparent 55%), #f9f6ee',
         }}
       />
     );

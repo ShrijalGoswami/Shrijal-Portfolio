@@ -20,13 +20,13 @@ const links = resume._EDIT_ME_FIRST;
      0.0  HELLO            "Hello / There" (NameIntro)
      2.0  NETWORK_BUILD    greeting collapses; core → spokes → heads → leaves →
                            cross-links, driven by tweening hero.target 0 → HOLD
-     5.2  NETWORK_HOLD     complete system holds still
-     7.2  HERO_TRANSITION  network recedes behind the veil, identity resolves
-     7.55 HERO             name + hero content animating in
-     8.55 NORMAL           scroll unlocked, scroll cue appears
+     4.6  NETWORK_HOLD     complete system holds still
+     5.2  HERO_TRANSITION  network recedes behind the veil, identity resolves
+     5.55 HERO             name + hero content animating in
+     6.55 NORMAL           scroll unlocked, scroll cue appears
    ------------------------------------------------------------------------- */
-const BUILD_S = 3.2;
-const HOLD_S = 2.0;
+const BUILD_S = 2.6;
+const HOLD_S = 0.6;
 const TRANSITION_S = 1.0;
 // Progress at which every node, spoke, leaf and cross-link has fully drawn but
 // the "settle" (network receding behind the identity) has not yet begun.
@@ -145,7 +145,7 @@ export default function LivingHero() {
       ref={sectionRef}
       id="top"
       className="relative"
-      style={{ height: '100svh', background: '#eff0eb' }}
+      style={{ height: '100svh', background: '#f9f6ee' }}
     >
       <div className="relative h-[100svh] w-full overflow-hidden">
         <KnowledgeScene />
@@ -166,7 +166,7 @@ export default function LivingHero() {
           className="hero-veil pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(75% 60% at 50% 50%, rgba(239,240,235,0.97) 0%, rgba(239,240,235,0.82) 40%, rgba(239,240,235,0.25) 70%, transparent 85%)',
+              'radial-gradient(75% 60% at 50% 50%, rgba(249,246,238,0.97) 0%, rgba(249,246,238,0.82) 40%, rgba(249,246,238,0.25) 70%, transparent 85%)',
           }}
         />
 

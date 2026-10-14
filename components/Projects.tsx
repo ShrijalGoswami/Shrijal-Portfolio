@@ -5,6 +5,7 @@ import resume from '@/data/resume.json';
 import { Reveal, CountUp } from './motion';
 
 const WASHES = ['#2c3b8e', '#233072', '#6f7890', '#2c3b8e'];
+const COUNT_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
 
 /**
  * Selected work — rebuilt from uniform stacked cards into large, editorial
@@ -20,7 +21,7 @@ export default function Projects() {
       <Reveal>
         <p className="t-label text-rust glow-rust">03 — Selected work</p>
         <h2 className="t-h2 mt-4 max-w-2xl">
-          Five systems, <em className="text-rust">measured.</em>
+          {COUNT_WORDS[resume.projects.length] ?? resume.projects.length} systems, <em className="text-rust">measured.</em>
         </h2>
       </Reveal>
 
@@ -114,7 +115,7 @@ export default function Projects() {
                       <div
                         aria-hidden
                         className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
-                        style={{ background: `radial-gradient(closest-side, ${WASHES[i]}55, transparent)` }}
+                        style={{ background: `radial-gradient(closest-side, ${WASHES[i % WASHES.length]}55, transparent)` }}
                       />
                       <p className="relative t-label text-ink/45">Measured</p>
                       <dl className="relative mt-5 space-y-6">
