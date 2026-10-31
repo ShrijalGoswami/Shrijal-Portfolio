@@ -138,7 +138,7 @@ export default function Identity() {
             </div>
             <div>
               <dt className="text-[11px] uppercase tracking-[0.18em] text-ink/45">Now</dt>
-              <dd className="mt-1 font-semibold text-ink">AI Strategist · AKademy38</dd>
+              <dd className="mt-1 font-semibold text-ink">Building Hirevo</dd>
             </div>
             <div>
               <dt className="text-[11px] uppercase tracking-[0.18em] text-ink/45">Status</dt>

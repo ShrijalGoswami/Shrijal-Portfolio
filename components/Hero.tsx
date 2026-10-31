@@ -130,13 +130,7 @@ export default function Hero() {
             <div>
               <dt className="text-[11px] uppercase tracking-[0.2em] text-ink/50">Now</dt>
               <dd className="mt-1 leading-relaxed text-ink/85">
-                AI Strategist @ <span className="font-semibold">AKademy38</span>: the Booklet Engine
-                pipeline (~10× lower token cost) and a child-safe AI tutor.
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[11px] uppercase tracking-[0.2em] text-ink/50">Shipped</dt>
-              <dd className="mt-1 leading-relaxed text-ink/85">
+                Building{' '}
                 <a
                   href="https://hirevo.in"
                   target="_blank"
@@ -145,7 +139,15 @@ export default function Hero() {
                 >
                   Hirevo
                 </a>
-                , an AI resume-screening SaaS, live and indexed on Google.
+                , an AI recruiting platform: resume parsing, semantic matching and an LLM recruiter
+                Copilot. Live at hirevo.in.
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[11px] uppercase tracking-[0.2em] text-ink/50">Before</dt>
+              <dd className="mt-1 leading-relaxed text-ink/85">
+                AI Strategist @ <span className="font-semibold">AKademy38</span>: the Booklet Engine
+                (~10× lower token cost) and a child-safe AI tutor.
               </dd>
             </div>
             <div>

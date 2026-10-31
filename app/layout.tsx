@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: SHARE_TITLE,
   description:
-    'AI/ML engineer turning research into production-grade systems: hybrid retrieval (RAG), stacked ensembles, and explainable AI. B.Tech CS (AI & ML) @ VIT Bhopal. AI Strategist @ AKademy38.',
+    'AI/ML engineer turning research into production-grade systems: hybrid retrieval (RAG), stacked ensembles, and explainable AI. B.Tech CS (AI & ML) @ VIT Bhopal. Building Hirevo, an AI recruiting platform.',
   alternates: { canonical: '/' },
   icons: { icon: '/favicon.svg' },
   openGraph: {

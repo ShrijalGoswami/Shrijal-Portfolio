@@ -23,7 +23,7 @@
       "role": "Built & launched",
       "org": "Hirevo",
       "where": "Independent SaaS product · hirevo.in",
-      "when": "2026 – present",
+      "when": "Sep 2026 – present",
       "current": true,
       "keyProject": {
         "name": "AI Resume Screening",
@@ -47,8 +47,8 @@
       "role": "AI Strategist",
       "org": "AKademy38",
       "where": "Australia-based EdTech startup · Remote",
-      "when": "2026 – present",
-      "current": true,
+      "when": "2026 – Oct 2026",
+      "current": false,
       "keyProject": {
         "name": "Booklet Engine",
         "alias": "structured AI content pipeline",
@@ -66,7 +66,7 @@
         "repoUrl": ""
       },
       "points": [
-        "Own AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.",
+        "Owned AI strategy across the product — AI workflow optimization, prompt engineering, and educational-content automation behind production systems.",
         "Replaced the manual AI booklet-generation workflow with a structured generation pipeline (the Booklet Engine), cutting token usage per booklet ~10× (≈40% → ≈4% of the prior budget).",
         "Designed and built a child-safe AI tutor serving Maths, Science, and English doubts across web, mobile, and WhatsApp — a 3-layer safety system, year-level-adaptive responses, and honest-uncertainty prompting for a primary-to-lower-secondary student audience.",
         "Standardized prompt and pipeline design so output stays consistent as volume grows — measurably improving scalability, reliability, and operational efficiency of content production."
@@ -77,7 +77,7 @@
       "role": "AI/ML Intern",
       "org": "Pinnacle Labs",
       "where": "Kolkata · Remote",
-      "when": "2025 – 2026",
+      "when": "May 2026 – Jun 2026",
       "current": false,
       "keyProject": {
         "name": "Resume Intelligence Platform",
@@ -162,7 +162,7 @@
     },
     {
       "name": "AI Tutor",
-      "what": "Child-safe AI tutor for Maths, Science & English — in production at AKademy38",
+      "what": "Child-safe AI tutor for Maths, Science & English — built at AKademy38",
       "detail": "A production tutor that answers student doubts across Maths, Science, and English for Years 3, 5, 7, 8 and the GATE cohort, aligned to the SCSA Western Australian curriculum — from a single backend serving web, mobile, and WhatsApp. No RAG: the model answers from its own knowledge, steered by year-level-aware prompt engineering, and every message passes a three-layer safety screen — input moderation → prompt-level rules → output moderation — before it reaches a child. Responses adapt vocabulary, depth, and tone to each year level (Year 3 ~8yo through Year 8 ~14yo, with extension challenges for GATE), admit uncertainty with full worked steps instead of fabricating, and route harm signals to a defined human safeguarding pathway.",
       "evidence": [
         { "value": "3-layer", "label": "defence-in-depth child safety — input moderation → prompt rules → output moderation on every message" },

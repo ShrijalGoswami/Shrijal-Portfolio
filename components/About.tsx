@@ -120,12 +120,12 @@ export default function About() {
               <span className="t-label text-rust">Now</span>
             </span>
             <p className="mt-4 text-xl leading-tight text-ink" style={{ fontFamily: 'var(--font-display)' }}>
-              AI Strategist
+              AI Product Engineer
             </p>
-            <p className="mt-1 text-[14px] text-ink/60">AKademy38 · Australia-based EdTech</p>
+            <p className="mt-1 text-[14px] text-ink/60">Hirevo · AI recruiting platform</p>
             <p className="mt-3 text-[13.5px] leading-relaxed text-ink/55">
-              Rebuilt a manual AI booklet workflow into a structured pipeline — ~10× lower token cost,
-              consistent at scale.
+              Building the candidate–job matching pipeline: resume parsing, semantic scoring and an
+              LLM recruiter Copilot, live at hirevo.in.
             </p>
           </article>
         </Item>
