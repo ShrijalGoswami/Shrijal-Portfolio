@@ -209,7 +209,9 @@ export function CountUp({
 }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
+  // Fires just before the figure scrolls into sight, so the reset to 0 happens
+  // off-screen and the count is already running as it appears.
+  const inView = useInView(ref, { once: true, margin: '0px 0px 12% 0px' });
 
   const match = value.match(/-?\d+(?:\.\d+)?/);
   const hasNum = !!match;
@@ -218,9 +220,9 @@ export function CountUp({
   const prefix = match ? value.slice(0, match.index!) : '';
   const suffix = match ? value.slice(match.index! + match[0].length) : '';
 
-  const [display, setDisplay] = useState(() =>
-    !hasNum || reduce ? value : prefix + (0).toFixed(decimals) + suffix,
-  );
+  // Server HTML and first paint carry the real figure, so crawlers, link
+  // previews and no-JS readers never see "0.00%".
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!hasNum || reduce || !inView) return;

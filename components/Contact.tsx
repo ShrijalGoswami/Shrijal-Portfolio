@@ -1,7 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import resume from '@/data/resume.json';
 import { Reveal, Magnetic } from './motion';
@@ -16,9 +16,13 @@ const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 const RATE_KEY = 'shrijal_contact_submit_time';
 const RATE_MS = 60_000;
 
-// Drop your own clip at /public/contact-bg.mp4 (and an optional poster frame at
-// /public/contact-poster.jpg). Until then the deep-ink backdrop stands in cleanly.
-const VIDEO_SRC = '/contact-bg.mp4';
+// Background clip: a 1.2 MB WebM first, the original MP4 only as a fallback for
+// browsers without WebM. Nothing downloads until the card is close to the
+// viewport; the poster frame covers the card until then.
+const VIDEO_SOURCES = [
+  { src: '/contact-bg.webm', type: 'video/webm' },
+  { src: '/contact-bg.mp4', type: 'video/mp4' },
+];
 const VIDEO_POSTER = '/contact-poster.jpg';
 
 type Status =
@@ -47,6 +51,20 @@ const CHANNELS = [
 export default function Contact() {
   const reduce = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  // Start fetching the clip a screen or so before the card arrives.
+  const near = useInView(cardRef, { once: true, margin: '700px 0px' });
+  const loadVideo = near && !reduce;
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!loadVideo || !v) return;
+    v.load();
+    v.play().catch(() => {
+      /* autoplay can be refused (e.g. data saver); the poster stays up */
+    });
+  }, [loadVideo]);
+
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<Status>({ state: 'idle' });
@@ -142,20 +160,24 @@ export default function Contact() {
 
         {/* Cinematic card */}
         <Reveal y={32}>
-          <div className="relative isolate overflow-hidden rounded-3xl bg-black shadow-[0_40px_90px_-40px_rgba(43,26,18,0.55)]">
-            {/* Background video — autoplay paused for reduced-motion visitors */}
+          <div
+            ref={cardRef}
+            className="relative isolate overflow-hidden rounded-3xl bg-black shadow-[0_40px_90px_-40px_rgba(43,26,18,0.55)]"
+          >
+            {/* Background video — lazy-loaded; reduced-motion visitors get the still poster */}
             <video
               ref={videoRef}
               className="absolute inset-0 -z-10 h-full w-full object-cover"
-              src={VIDEO_SRC}
               poster={VIDEO_POSTER}
-              autoPlay={!reduce}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               aria-hidden
-            />
+            >
+              {loadVideo &&
+                VIDEO_SOURCES.map((s) => <source key={s.src} src={s.src} type={s.type} />)}
+            </video>
 
             {/* Neutral, readable treatments — keep the footage's true colour.
                 No tint: a subtle black vignette for cinematic depth + a localized

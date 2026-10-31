@@ -7,9 +7,8 @@ import resume from '@/data/resume.json';
 import { EASE } from './motion';
 
 /**
- * The identity bridge — placed immediately after the Living Knowledge System.
- * Once the network has formed and the name has resolved, this is the person
- * behind it: an editorial portrait plate (offset registration frame, warm
+ * The identity bridge — placed immediately after the hero. This is the person
+ * behind the work: an editorial portrait plate (offset registration frame, warm
  * treatment, scroll parallax) set against a tight, trust-building statement.
  * Deliberately not an avatar, not a profile card.
  */
@@ -110,7 +109,7 @@ export default function Identity() {
             className="mt-5 max-w-2xl text-3xl leading-[1.12] md:text-[2.9rem]"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Behind every node above, the same person — <em className="text-rust">building it,
+            Behind every system on this page, the same person — <em className="text-rust">building it,
             shipping it,</em> and standing behind it in production.
           </motion.h2>
 
@@ -121,8 +120,8 @@ export default function Identity() {
             transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
             className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink/75"
           >
-            I&apos;m {resume.name}. The hybrid retrieval, the ensembles, the pipelines in the map
-            above are all things I&apos;ve taken from a notebook to a live endpoint — I work on the
+            I&apos;m {resume.name}. The hybrid retrieval, the ensembles, the pipelines below are all
+            things I&apos;ve taken from a notebook to a live endpoint — I work on the
             unglamorous part of AI that has to keep running after the demo ends.
           </motion.p>
 

@@ -1,11 +1,37 @@
 'use client';
 
+import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import resume from '@/data/resume.json';
 import { Reveal, CountUp } from './motion';
 
 const WASHES = ['#2c3b8e', '#233072', '#6f7890', '#2c3b8e'];
 const COUNT_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+// Only the genuinely long write-ups (AI Tutor, Plant Disease) are clamped to
+// four lines behind a "Read more"; shorter ones read in full.
+const CLAMP_CHARS = 500;
+
+/** Project narrative: long write-ups start clamped so the section scans quickly.
+ *  The full text stays in the DOM, so search engines still read all of it. */
+function Detail({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  const long = text.length > CLAMP_CHARS;
+  return (
+    <div className="mt-5 max-w-xl">
+      <p className={`text-[16px] leading-relaxed text-ink/75 ${long && !open ? 'line-clamp-4' : ''}`}>{text}</p>
+      {long && (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className="nav-underline mt-2 text-[13px] font-semibold text-rust"
+        >
+          {open ? 'Show less' : 'Read more'}
+        </button>
+      )}
+    </div>
+  );
+}
 
 /**
  * Selected work — rebuilt from uniform stacked cards into large, editorial
@@ -25,7 +51,7 @@ export default function Projects() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 space-y-20 md:mt-20 md:space-y-28">
+      <div className="mt-14 space-y-16 md:mt-20 md:space-y-20">
         {resume.projects.map((project, i) => {
           const flip = i % 2 === 1;
           const links = (project as {
@@ -61,7 +87,7 @@ export default function Projects() {
                     >
                       {project.name}
                     </h3>
-                    <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink/75">{project.detail}</p>
+                    <Detail text={project.detail} />
                     <p className="mt-5 font-mono text-[12.5px] tracking-wide text-ink/45" style={{ fontFamily: 'var(--font-mono)' }}>
                       {project.stack.join('  ·  ')}
                     </p>

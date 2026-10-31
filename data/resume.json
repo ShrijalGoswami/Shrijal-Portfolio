@@ -83,8 +83,8 @@
         "alias": "Resume Parser",
         "tagline": "AI-powered résumé extraction, analysis & candidate profiling — automating the full parsing → extraction → scoring → profiling pipeline.",
         "tags": ["AI", "NLP", "Document Processing"],
-        "liveUrl": "https://hirelens-lma1.onrender.com",
-        "repoUrl": "https://github.com/ShrijalGoswami/Resume-Parser"
+        "liveUrl": "",
+        "repoUrl": ""
       },
       "points": [
         "Designed and built the Resume Intelligence Platform (Resume Parser) — an AI-powered system for automated résumé extraction, analysis, and candidate profiling.",
@@ -149,18 +149,14 @@
   "projects": [
     {
       "name": "Resume Intelligence Platform",
-      "what": "AI résumé parsing, analysis & candidate profiling — deployed and live",
-      "detail": "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built, deployed, and publicly usable.",
+      "what": "AI résumé parsing, analysis & candidate profiling — built at Pinnacle Labs",
+      "detail": "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built and deployed end-to-end during my internship at Pinnacle Labs.",
       "evidence": [
-        { "value": "Live", "label": "publicly deployed and usable — a running product, not a demo reel" },
-        { "value": "5-stage", "label": "NLP pipeline: extract → NER → taxonomy match → parse → score" }
+        { "value": "5-stage", "label": "NLP pipeline: extract → NER → taxonomy match → parse → score" },
+        { "value": "End-to-end", "label": "owned from document ingestion through parsing to candidate profiling and deployment" }
       ],
       "stack": ["Python", "Streamlit", "spaCy", "NLP", "Groq LLM", "PDF processing"],
-      "links": {
-        "live": "https://hirelens-lma1.onrender.com",
-        "code": "https://github.com/ShrijalGoswami/Resume-Parser",
-        "note": "Free-tier hosting — first load can take ~30s to spin up."
-      }
+      "links": { "internal": "Built during the Pinnacle Labs internship" }
     },
     {
       "name": "AI Tutor",

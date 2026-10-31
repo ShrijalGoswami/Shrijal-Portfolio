@@ -7,11 +7,11 @@ import { GithubIcon, LinkedinIcon } from './icons';
 
 const links = resume._EDIT_ME_FIRST;
 
-const nav = [
+const nav: { href: string; label: string; short?: string }[] = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#work', label: 'Work' },
-  { href: '#research', label: 'Applied R&D' },
+  { href: '#research', label: 'Applied R&D', short: 'R&D' },
   { href: '#terminal', label: 'Terminal' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -120,7 +120,7 @@ export default function Header() {
 
       <nav
         aria-label="Primary mobile"
-        className="flex items-center gap-5 overflow-x-auto border-t border-ink/10 px-5 py-2 sm:hidden"
+        className="flex items-center justify-between gap-2 border-t border-ink/10 px-4 py-2 sm:hidden"
       >
         {nav.map((item) => {
           const isActive = active === item.href.slice(1);
@@ -129,11 +129,12 @@ export default function Header() {
               key={item.href}
               href={item.href}
               aria-current={isActive ? 'true' : undefined}
-              className={`whitespace-nowrap py-1 text-[13px] transition-colors ${
+              aria-label={item.short ? item.label : undefined}
+              className={`whitespace-nowrap py-1 text-[12.5px] transition-colors ${
                 isActive ? 'font-medium text-rust' : 'text-ink/70'
               }`}
             >
-              {item.label}
+              {item.short ?? item.label}
             </a>
           );
         })}

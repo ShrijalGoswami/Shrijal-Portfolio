@@ -1,8 +1,6 @@
 import Header from '@/components/Header';
 import ScrollProgress from '@/components/ScrollProgress';
-import NameIntro from '@/components/hero/NameIntro';
-import LivingHero from '@/components/hero/LivingHero';
-import AmbientField from '@/components/AmbientField';
+import Hero from '@/components/Hero';
 import DriftMotes from '@/components/DriftMotes';
 import Identity from '@/components/Identity';
 import StatsBand from '@/components/StatsBand';
@@ -18,13 +16,11 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
-      <NameIntro />
       <ScrollProgress />
       <Header />
-      <AmbientField />
       <DriftMotes />
       <main>
-        <LivingHero />
+        <Hero />
         <Identity />
         <StatsBand />
         <About />
