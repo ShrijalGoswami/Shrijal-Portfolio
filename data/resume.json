@@ -3,7 +3,7 @@
     "_comment": "Everything on the site (header, contact, terminal) reads its links from here.",
     "GITHUB_URL": "https://github.com/ShrijalGoswami",
     "LINKEDIN_URL": "https://www.linkedin.com/in/shrijal-goswami",
-    "EMAIL": "goswamivansh999@gmail.com",
+    "EMAIL": "shrijalgoswami999@gmail.com",
     "RESUME_PDF_URL": "/Shrijal_Goswami_Resume.pdf"
   },
   "name": "Shrijal Goswami",
@@ -37,6 +37,7 @@
       },
       "points": [
         "Built and launched Hirevo, an AI Resume Screening SaaS — a live, publicly accessible product at hirevo.in, not a demo.",
+        "Hirevo is the upgraded, production version of the Resume Intelligence Platform (Resume Parser) I first built during my internship at Pinnacle Labs.",
         "Shipped the AI-powered Resume Screening workflow and its public page to production, and wired the page into the marketing navigation.",
         "Submitted the page for Google indexing; it is now indexed and appears in Google Search — Hirevo’s first organic, discoverable entry point."
       ]
@@ -81,9 +82,10 @@
       "keyProject": {
         "name": "Resume Intelligence Platform",
         "alias": "Resume Parser",
-        "tagline": "AI-powered résumé extraction, analysis & candidate profiling — automating the full parsing → extraction → scoring → profiling pipeline.",
+        "tagline": "AI-powered résumé extraction, analysis & candidate profiling — automating the full parsing → extraction → scoring → profiling pipeline. Since upgraded into Hirevo, a live SaaS product.",
         "tags": ["AI", "NLP", "Document Processing"],
-        "liveUrl": "",
+        "liveUrl": "https://hirevo.in",
+        "liveLabel": "Now live as Hirevo",
         "repoUrl": ""
       },
       "points": [
@@ -149,14 +151,14 @@
   "projects": [
     {
       "name": "Resume Intelligence Platform",
-      "what": "AI résumé parsing, analysis & candidate profiling — built at Pinnacle Labs",
-      "detail": "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built and deployed end-to-end during my internship at Pinnacle Labs.",
+      "what": "AI résumé parsing, analysis & candidate profiling — now upgraded into Hirevo",
+      "detail": "A multi-stage NLP pipeline that turns unstructured résumés into structured candidate intelligence: PDF extraction → named-entity recognition → skills-taxonomy matching → section-aware parsing → ATS scoring with Groq-LLM synthesis. Built and deployed during my internship at Pinnacle Labs, then upgraded into Hirevo, a live resume-screening SaaS at hirevo.in.",
       "evidence": [
         { "value": "5-stage", "label": "NLP pipeline: extract → NER → taxonomy match → parse → score" },
-        { "value": "End-to-end", "label": "owned from document ingestion through parsing to candidate profiling and deployment" }
+        { "value": "Live", "label": "its upgraded version runs in production as Hirevo, publicly available and indexed on Google" }
       ],
       "stack": ["Python", "Streamlit", "spaCy", "NLP", "Groq LLM", "PDF processing"],
-      "links": { "internal": "Built during the Pinnacle Labs internship" }
+      "links": { "live": "https://hirevo.in", "liveLabel": "Live as Hirevo" }
     },
     {
       "name": "AI Tutor",

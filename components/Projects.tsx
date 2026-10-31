@@ -55,7 +55,7 @@ export default function Projects() {
         {resume.projects.map((project, i) => {
           const flip = i % 2 === 1;
           const links = (project as {
-            links?: { live?: string; code?: string; internal?: string; note?: string };
+            links?: { live?: string; liveLabel?: string; code?: string; internal?: string; note?: string };
           }).links;
 
           return (
@@ -107,7 +107,7 @@ export default function Projects() {
                               )}
                               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-onaccent" />
                             </span>
-                            Live demo ↗
+                            {links.liveLabel ?? 'Live demo'} ↗
                           </a>
                         )}
                         {links.code && (
