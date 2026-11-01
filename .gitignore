@@ -35,3 +35,6 @@ dist-ssr
 .next/
 out/
 next-env.d.ts
+
+# Local browser-test snapshots
+.playwright-mcp/
