@@ -19,8 +19,8 @@
   },
   "experience": [
     {
-      "stage": "Product milestone",
-      "role": "Built & launched",
+      "stage": "Independent product",
+      "role": "AI Product Engineer",
       "org": "Hirevo",
       "where": "Independent SaaS product · hirevo.in",
       "when": "Sep 2026 – present",
@@ -47,7 +47,7 @@
       "role": "AI Strategist",
       "org": "AKademy38",
       "where": "Australia-based EdTech startup · Remote",
-      "when": "2026 – Oct 2026",
+      "when": "Jul 2026 – Oct 2026",
       "current": false,
       "keyProject": {
         "name": "Booklet Engine",
@@ -100,8 +100,8 @@
       "role": "Active Member",
       "org": "Data Science Club, VIT Bhopal",
       "where": "VIT Bhopal",
-      "when": "Aug 2025 – present",
-      "current": true,
+      "when": "Aug 2025 – Aug 2026",
+      "current": false,
       "points": [
         "Collaborative EDA and data-cleaning projects; built and deployed small-scale predictive models.",
         "Organized learning bootcamps for student developers."
